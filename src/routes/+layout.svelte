@@ -9,14 +9,12 @@
 	import CommandPalette from '$lib/components/CommandPalette.svelte';
 	import Bars3Icon from '$lib/icons/24/outline/bars-3.svg?component';
 	import { sidebarDialog } from '$lib/stores';
+	import { commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
-	import { confetti } from '@neoconfetti/svelte';
 	export let data: LayoutData;
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
 	console.info($LL.log({ fileName: '+layout.svelte' }));
-
-	let show = false;
 </script>
 
 <svelte:head>
@@ -25,8 +23,8 @@
 </svelte:head>
 
 <svelte:window
-	use:shortcut={{ code: 'Escape', callback: () => (show = false) }}
-	use:shortcut={{ control: true, code: 'KeyK', callback: () => (show = true) }}
+	use:shortcut={{ code: 'Escape', callback: commandPaletteDialog.close }}
+	use:shortcut={{ control: true, code: 'KeyK', callback: commandPaletteDialog.open }}
 />
 
 <Sidebar />
@@ -59,8 +57,6 @@
 	</main>
 </div>
 
-{#if show}
-	<CommandPalette />
-{/if}
+<CommandPalette />
 
 <SvelteTheme attribute="data-theme" />
