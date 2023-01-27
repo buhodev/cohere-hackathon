@@ -33,6 +33,12 @@
 	}}
 />
 
+<a
+	href="{$page.url.pathname}/#content"
+	class="absolute z-20 hidden translate-x-2 -translate-y-10 rounded-md py-1 px-2 hover:ring focus:translate-y-2 focus-visible:outline-none focus-visible:ring md:inline-block"
+	>skip navigation</a
+>
+
 <Sidebar />
 
 <!-- Content -->
