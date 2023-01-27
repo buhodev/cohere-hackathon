@@ -4,7 +4,7 @@
 </script>
 
 {#if $showConfetti}
-	<div class="flex justify-center">
+	<div class="pointer-events-none flex justify-center">
 		<div use:confetti />
 	</div>
 {/if}
