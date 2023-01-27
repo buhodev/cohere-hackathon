@@ -24,8 +24,9 @@
 	<!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 	<div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
 		<div
-			transition:fade={{ easing: cubicInOut }}
-			on:keydown={sidebarDialog.close}
+			in:fade={{ easing: cubicOut, duration: 250 }}
+			out:fade={{ easing: cubicIn, duration: 200 }}
+			on:mousedown={sidebarDialog.close}
 			class="fixed inset-0 bg-neutral-600 bg-opacity-75"
 		/>
 
@@ -37,7 +38,8 @@
 				class="relative flex w-full max-w-xs flex-1 flex-col bg-white dark:bg-neutral-800"
 			>
 				<div
-					transition:fade={{ duration: 250, easing: cubicInOut }}
+					in:fade={{ duration: 250, easing: cubicInOut }}
+					out:fade={{ duration: 150, easing: cubicInOut }}
 					class="absolute top-0 right-0 -mr-12 pt-2"
 				>
 					<button
