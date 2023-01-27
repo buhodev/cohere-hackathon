@@ -8,7 +8,8 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import CommandPalette from '$lib/components/CommandPalette.svelte';
 	import Bars3Icon from '$lib/icons/24/outline/bars-3.svg?component';
-	import { sidebarDialog } from '$lib/stores';
+	import Confetti from '$lib/components/Confetti.svelte';
+	import { showConfetti, sidebarDialog } from '$lib/stores';
 	import { commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
 	export let data: LayoutData;
@@ -25,6 +26,11 @@
 <svelte:window
 	use:shortcut={{ code: 'Escape', callback: commandPaletteDialog.close }}
 	use:shortcut={{ control: true, code: 'KeyK', callback: commandPaletteDialog.open }}
+	use:shortcut={{
+		control: true,
+		code: 'KeyP',
+		callback: showConfetti.fire
+	}}
 />
 
 <Sidebar />
@@ -58,5 +64,7 @@
 </div>
 
 <CommandPalette />
+
+<Confetti />
 
 <SvelteTheme attribute="data-theme" />
