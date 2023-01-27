@@ -6,18 +6,28 @@
 	import type { LayoutData } from './$types';
 	import SvelteTheme from '$lib/components/SvelteThemes/SvelteTheme.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import CommandPalette from '$lib/components/CommandPalette.svelte';
 	import Bars3Icon from '$lib/icons/24/outline/bars-3.svg?component';
 	import { sidebarDialog } from '$lib/stores';
+	import { shortcut } from '$lib/actions';
+	import { confetti } from '@neoconfetti/svelte';
 	export let data: LayoutData;
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
 	console.info($LL.log({ fileName: '+layout.svelte' }));
+
+	let show = false;
 </script>
 
 <svelte:head>
 	<title>{$page.data.title || 'Co:here Hackathon'}</title>
 	<HeadHrefLangs />
 </svelte:head>
+
+<svelte:window
+	use:shortcut={{ code: 'Escape', callback: () => (show = false) }}
+	use:shortcut={{ control: true, code: 'KeyK', callback: () => (show = true) }}
+/>
 
 <Sidebar />
 
@@ -48,5 +58,9 @@
 		</div>
 	</main>
 </div>
+
+{#if show}
+	<CommandPalette />
+{/if}
 
 <SvelteTheme attribute="data-theme" />
