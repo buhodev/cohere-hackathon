@@ -127,14 +127,14 @@
 </script>
 
 {#if $commandPaletteDialog.expanded}
-	<div class="relative z-10" role="dialog" aria-modal="true">
+	<div class="relative z-50" role="dialog" aria-modal="true">
 		<div
 			in:fade={{ duration: 250, easing: cubicOut }}
 			out:fade={{ duration: 150, easing: cubicIn }}
 			on:mousedown={commandPaletteDialog.close}
 			class="fixed inset-0 bg-neutral-500 bg-opacity-25"
 		/>
-		<div class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20">
+		<div class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20">
 			<!-- Command Palette -->
 			<div
 				on:mousedown|preventDefault={() => input.focus()}
