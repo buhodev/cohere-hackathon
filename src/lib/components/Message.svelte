@@ -7,6 +7,7 @@
 	export let sentByCurrentUser = false;
 	export let groupPosition: 'top' | 'middle' | 'bottom' | undefined = undefined;
 	export let id: string = '';
+	export let placeholder: boolean;
 
 	const locales = {
 		en: enUS,
@@ -39,15 +40,33 @@
         data-[me=true]:focus-visible:ring-indigo-300 dark:data-[me=true]:focus-visible:ring-white/70
     "
 >
-    <p>{message.body}</p>
-    <time
-        datetime={message.sentAt.toISOString()}
-        class="
-        hidden group-focus:block text-xs text-right first-letter:capitalize
-        group-data-[me=true]:text-indigo-100
-        group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
-        "
-    >
-        {relativeDistance}
-    </time>
+    {#if placeholder}
+        <span class="inline-flex items-center gap-px">
+            <span class="mx-px h-1.5 w-1.5 animate-blink rounded-full bg-indigo-500"></span>
+            <span class="mx-px h-1.5 w-1.5 animate-blink rounded-full bg-indigo-500 animation-delay-200"></span>
+            <span class="mx-px h-1.5 w-1.5 animate-blink rounded-full bg-indigo-500 animation-delay-[400ms]"></span>
+        </span>
+        <time
+            datetime={message.sentAt.toISOString()}
+            class="
+            hidden group-focus:block text-xs text-right first-letter:capitalize
+            group-data-[me=true]:text-indigo-100
+            group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
+            "
+        >
+            {relativeDistance}
+        </time>
+    {:else}
+        <p>{message.body}</p>
+        <time
+            datetime={message.sentAt.toISOString()}
+            class="
+            hidden group-focus:block text-xs text-right first-letter:capitalize
+            group-data-[me=true]:text-indigo-100
+            group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
+            "
+        >
+            {relativeDistance}
+        </time>
+    {/if}
 </div>
