@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { locale } from '$i18n/i18n-svelte';
-	import { formatDistance } from 'date-fns';
-	import { es, enUS } from 'date-fns/locale';
+	import { format } from 'date-fns';
 
 	export let message: { body: string; sentAt: Date };
 	export let sentByCurrentUser = false;
@@ -9,15 +7,7 @@
 	export let id: string = '';
 	export let placeholder: boolean;
 
-	const locales = {
-		en: enUS,
-		es: es
-	};
-
-	$: relativeDistance = formatDistance(message.sentAt, new Date(), {
-		addSuffix: true,
-		locale: locales[$locale]
-	});
+	let exactTime = format(message.sentAt, 'p');
 </script>
 
 <!-- prettier-ignore -->
@@ -54,7 +44,7 @@
             group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
             "
         >
-            {relativeDistance}
+            {exactTime}
         </time>
     {:else}
         <p>{message.body}</p>
@@ -66,7 +56,7 @@
             group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
             "
         >
-            {relativeDistance}
+            {exactTime}
         </time>
     {/if}
 </div>
