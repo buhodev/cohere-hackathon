@@ -182,7 +182,7 @@
 											on:mouseleave={() => (selectedIndex = -1)}
 											on:focusout={() => (selectedIndex = -1)}
 											class="group flex cursor-default select-none items-center rounded-md px-3 py-2 {active
-												? 'bg-neutral-900 bg-opacity-5 text-neutral-900 dark:bg-neutral-800 dark:text-white'
+												? 'bg-neutral-900 bg-opacity-5 text-neutral-900 dark:bg-white dark:bg-opacity-5 dark:text-white'
 												: ''}"
 										>
 											<svg
@@ -233,7 +233,7 @@
 								on:focusout={() => (selectedIndex = -1)}
 								class="group flex cursor-default select-none items-center rounded-md px-3 py-2
                                     {active
-									? 'bg-neutral-900 bg-opacity-5 text-neutral-900 dark:bg-neutral-800 dark:text-white'
+									? 'bg-neutral-900 bg-opacity-5 text-neutral-900  dark:bg-white dark:bg-opacity-5 dark:text-white'
 									: ''}"
 							>
 								<svg
