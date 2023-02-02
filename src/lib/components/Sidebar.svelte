@@ -7,7 +7,6 @@
 	import HomeIcon from '$lib/icons/24/outline/home.svg?component';
 	import BeakerIcon from '$lib/icons/24/outline/beaker.svg?component';
 	import ChatBubbleBottomCenterTextIcon from '$lib/icons/24/outline/chat-bubble-bottom-center-text.svg?component';
-	import Cog6ToothIcon from '$lib/icons/24/outline/cog-6-tooth.svg?component';
 	import ThemeSwitcher from './ThemeSwitcher.svelte';
 	import LocaleSwitcher from './LocaleSwitcher.svelte';
 	import { sidebarDialog } from '$lib/stores';
@@ -15,8 +14,7 @@
 	$: navigation = [
 		{ name: 'Home', href: `/${$locale}` },
 		{ name: 'Chat', href: `/${$locale}/chat` },
-		{ name: 'Playground', href: `/${$locale}/playground` },
-		{ name: 'Settings', href: `/${$locale}/settings` }
+		{ name: 'Playground', href: `/${$locale}/playground` }
 	];
 </script>
 
@@ -77,7 +75,7 @@
 					</div> -->
 
 				<div
-					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 pb-4 dark:border-neutral-700 dark:bg-neutral-800"
+					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 pb-4 dark:border-neutral-700 dark:bg-neutral-800 bg-neutral-200"
 				>
 					<nav class="mt-5 flex-1 space-y-1 px-2">
 						{#each navigation as { name, href }}
@@ -85,7 +83,7 @@
 							<a
 								{href}
 								on:click={sidebarDialog.close}
-								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium hover:ring focus-visible:outline-none focus-visible:ring
+								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium hover:ring focus-visible:outline-none focus-visible:ring ring-offset-2 ring-offset-transparent
 										{active
 									? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 									: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
@@ -104,12 +102,6 @@
 									/>
 								{:else if name == 'Chat'}
 									<ChatBubbleBottomCenterTextIcon
-										class="mr-4 h-6 w-6 flex-shrink-0 {active
-											? 'text-neutral-500 dark:text-neutral-300'
-											: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
-									/>
-								{:else if name == 'Settings'}
-									<Cog6ToothIcon
 										class="mr-4 h-6 w-6 flex-shrink-0 {active
 											? 'text-neutral-500 dark:text-neutral-300'
 											: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
@@ -190,12 +182,6 @@
 							/>
 						{:else if name == 'Chat'}
 							<ChatBubbleBottomCenterTextIcon
-								class="mr-3 h-6 w-6 flex-shrink-0 {active
-									? 'text-neutral-500 dark:text-neutral-300'
-									: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
-							/>
-						{:else if name == 'Settings'}
-							<Cog6ToothIcon
 								class="mr-3 h-6 w-6 flex-shrink-0 {active
 									? 'text-neutral-500 dark:text-neutral-300'
 									: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
