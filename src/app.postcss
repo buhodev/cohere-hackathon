@@ -23,25 +23,70 @@
 	}
 
 	html {
-		--scrollbarBG: white;
-		--thumbBG: #90a4ae;
+		/* scrollbar */
+		--scrollbar-bg: white;
+		--scrollbar-thumb-bg: #90a4ae;
 	}
 	html[data-theme='dark'] {
-		--scrollbarBG: rgb(23, 23, 23);
+		/* scrollbar */
+		--scrollbar-bg: rgb(23, 23, 23);
 	}
+
+	/* Scrollbar styles */
 	*::-webkit-scrollbar {
 		width: 11px;
 	}
 	* {
 		scrollbar-width: thin;
-		scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+		scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-bg);
 	}
 	*::-webkit-scrollbar-track {
-		background: var(--scrollbarBG);
+		background: var(--scrollbar-bg);
 	}
 	*::-webkit-scrollbar-thumb {
-		background-color: var(--thumbBG);
+		background-color: var(--scrollbar-thumb-bg);
 		border-radius: 6px;
-		border: 3px solid var(--scrollbarBG);
+		border: 3px solid var(--scrollbar-bg);
+	}
+
+	/* Range slider styles */
+	/*********** Reset styles ***********/
+	input[type='range'] {
+		-webkit-appearance: none;
+		appearance: none;
+		background: transparent;
+		cursor: pointer;
+		width: 100%;
+	}
+
+	/* Removes default focus */
+	input[type='range']:focus {
+		outline: none;
+	}
+
+	/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+	/* slider track */
+	input[type='range']::-webkit-slider-runnable-track {
+		@apply h-1 rounded-lg bg-neutral-700 dark:bg-indigo-400;
+	}
+
+	/* slider thumb */
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none; /* Override default look */
+		appearance: none;
+		margin-top: -6px; /* Centers thumb on the track */
+		@apply h-4 w-4 rounded-lg bg-neutral-800 focus-visible:ring active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
+	}
+
+	/*********** Firefox styles ***********/
+	/* slider track */
+	input[type='range']::-moz-range-track {
+		@apply h-1 rounded-lg bg-neutral-700 dark:bg-indigo-400;
+	}
+
+	/* slider thumb */
+	input[type='range']::-moz-range-thumb {
+		border: none; /*Removes extra border that FF applies*/
+		@apply h-4 w-4 rounded-lg bg-neutral-800 focus-visible:ring active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
 	}
 }
