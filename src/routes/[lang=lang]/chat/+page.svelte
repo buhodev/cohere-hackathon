@@ -2,7 +2,7 @@
 	import type { ActionData, PageData } from './$types';
 	import { enhance, type SubmitFunction } from '$app/forms';
 	import { beforeUpdate, afterUpdate, onMount } from 'svelte';
-	import { getMessagePosition } from '$lib/utils/getMessagePosition';
+	import { getMessagePosition } from '$lib/utils';
 	import Message from '$lib/components/Message.svelte';
 	import PaperAirplaneIcon from '$lib/icons/24/solid/paper-airplane.svg?component';
 	import LoadingMessage from '$lib/components/LoadingMessage.svelte';

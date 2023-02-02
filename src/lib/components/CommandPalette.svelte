@@ -6,7 +6,7 @@
 	import { commandPaletteDialog, showConfetti } from '$lib/stores';
 	import MagnifyingGlassIcon from '$lib/icons/20/solid/magnifying-glass.svg?component';
 	import FolderIcon from '$lib/icons/24/outline/folder.svg?component';
-	import { getOS } from '$lib/utils/getOS';
+	import { getOS } from '$lib/utils';
 
 	const uid = (() => {
 		let n = -1;
