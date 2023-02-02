@@ -42,7 +42,7 @@
 <Sidebar />
 
 <!-- Content -->
-<div id="content" class="flex flex-1 flex-col md:pl-64">
+<div id="content" class="flex h-full flex-1 flex-col md:pl-64">
 	<div
 		class="bg-neutral sticky top-0 z-10 bg-white pl-1 pt-1 dark:bg-neutral-900 sm:pl-3 sm:pt-3 md:hidden"
 	>
@@ -55,17 +55,8 @@
 			<Bars3Icon class="h-6 w-6" />
 		</button>
 	</div>
-	<main class="flex-1">
-		<div class="py-6">
-			<!-- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-				<h1 class="text-2xl font-semibold text-neutral-900 dark:text-white">Dashboard</h1>
-			</div> -->
-			<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-				<div class="py-4">
-					<slot />
-				</div>
-			</div>
-		</div>
+	<main class="flex h-full flex-1 flex-col overflow-auto py-6">
+		<slot />
 	</main>
 </div>
 
