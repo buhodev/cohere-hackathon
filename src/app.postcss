@@ -67,26 +67,34 @@
 	/******** Chrome, Safari, Opera and Edge Chromium styles ********/
 	/* slider track */
 	input[type='range']::-webkit-slider-runnable-track {
-		@apply h-1 rounded-lg bg-neutral-700 dark:bg-indigo-400;
+		@apply h-0.5 rounded-lg bg-neutral-700 dark:bg-indigo-500;
 	}
 
 	/* slider thumb */
 	input[type='range']::-webkit-slider-thumb {
 		-webkit-appearance: none; /* Override default look */
 		appearance: none;
-		margin-top: -6px; /* Centers thumb on the track */
-		@apply h-4 w-4 rounded-lg bg-neutral-800 focus-visible:ring active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
+		margin-top: -7px; /* Centers thumb on the track */
+		@apply h-4 w-4 rounded-lg bg-neutral-800 active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
+	}
+
+	input[type='range']:focus-visible::-webkit-slider-thumb {
+		@apply ring;
 	}
 
 	/*********** Firefox styles ***********/
 	/* slider track */
 	input[type='range']::-moz-range-track {
-		@apply h-1 rounded-lg bg-neutral-700 dark:bg-indigo-400;
+		@apply h-0.5 rounded-lg bg-neutral-700 dark:bg-indigo-500;
 	}
 
 	/* slider thumb */
 	input[type='range']::-moz-range-thumb {
 		border: none; /*Removes extra border that FF applies*/
-		@apply h-4 w-4 rounded-lg bg-neutral-800 focus-visible:ring active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
+		@apply h-4 w-4 rounded-lg bg-neutral-800 active:bg-slate-900 dark:bg-white dark:active:bg-slate-100;
+	}
+
+	input[type='range']:focus-visible::-moz-range-thumb {
+		@apply ring;
 	}
 }
