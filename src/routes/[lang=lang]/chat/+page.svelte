@@ -79,6 +79,8 @@
 		<div class="relative flex w-full items-center">
 			<input
 				value={form?.message ?? ''}
+				autocomplete="off"
+				autofocus
 				type="text"
 				name="message"
 				id="message"
