@@ -5,7 +5,7 @@
 <button
 	on:click
 	disabled={loading}
-	class="relative overflow-hidden rounded-lg bg-indigo-500 px-20 py-5 ring-blue-500/50 ring-offset-white will-change-transform focus:outline-none focus:ring focus:ring-offset-2 dark:ring-offset-neutral-900"
+	class="relative overflow-hidden rounded-lg bg-indigo-500 px-20 py-5 duration-75 will-change-transform hover:scale-[1.01] focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.99] dark:focus-visible:ring-blue-500/50 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-900"
 >
 	<span
 		class="absolute z-10 grid place-items-center rounded-lg bg-indigo-500 text-white transition-colors dark:bg-indigo-600 {loading
