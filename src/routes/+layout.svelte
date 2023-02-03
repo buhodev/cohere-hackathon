@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { page } from '$app/stores';
-	import LL, { setLocale } from '$i18n/i18n-svelte';
+	import LL, { locale, setLocale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/HeadHrefLangs.svelte';
 	import type { LayoutData } from './$types';
 	import SvelteTheme from '$lib/components/SvelteThemes/SvelteTheme.svelte';
@@ -9,6 +9,7 @@
 	import CommandPalette from '$lib/components/CommandPalette.svelte';
 	import Bars3Icon from '$lib/icons/24/outline/bars-3.svg?component';
 	import Confetti from '$lib/components/Confetti.svelte';
+	import PlaygroundSettings from '$lib/components/playground/PlaygroundSettings.svelte';
 	import { showConfetti, sidebarDialog } from '$lib/stores';
 	import { commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
@@ -55,9 +56,20 @@
 			<Bars3Icon class="h-6 w-6" />
 		</button>
 	</div>
-	<main class="flex h-full flex-1 flex-col overflow-auto py-6">
-		<slot />
-	</main>
+	<div class="relative z-0 flex flex-1 overflow-hidden">
+		<main class="flex h-full flex-1 flex-col overflow-y-auto py-6">
+			<slot />
+		</main>
+		{#if $page.url.pathname == `/${$locale}/playground`}
+			<aside
+				class="relative hidden w-72 flex-shrink-0 overflow-y-auto border-l border-gray-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 xl:flex xl:flex-col"
+			>
+				<div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-6">
+					<PlaygroundSettings />
+				</div>
+			</aside>
+		{/if}
+	</div>
 </div>
 
 <CommandPalette />
