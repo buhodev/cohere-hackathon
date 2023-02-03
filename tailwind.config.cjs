@@ -15,8 +15,12 @@ module.exports = {
 			fontFamily: {
 				sans: ['Inter', ...fontFamily.sans]
 			},
+			backgroundImage: {
+				'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))'
+			},
 			animation: {
-				blink: 'blink 1.4s infinite both'
+				blink: 'blink 1.4s infinite both',
+				disco: 'disco 1.5s linear infinite'
 			},
 			keyframes: {
 				blink: {
@@ -29,6 +33,10 @@ module.exports = {
 					'100%': {
 						opacity: ' 0.2'
 					}
+				},
+				disco: {
+					'0%': { transform: 'translateY(-50%) rotate(0deg)' },
+					'100%': { transform: 'translateY(-50%) rotate(360deg)' }
 				}
 			}
 		}
