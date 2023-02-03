@@ -18,7 +18,7 @@
     class="
         group max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-prose w-fit min-w-min px-3 py-1 rounded-2xl antialiased select-text message
         data-[me=true]:bg-indigo-500 data-[me=true]:text-white data-[me=true]:ml-auto
-        data-[me=false]:bg-slate-100 data-[me=false]:mr-auto dark:data-[me=false]:bg-gray-800
+        data-[me=false]:bg-gray-100 data-[me=false]:border data-[me=false]:mr-auto dark:data-[me=false]:bg-gray-800 dark:data-[me=false]:border-gray-700
         data-[me=true]:data-[position=top]:rounded-br
         data-[me=true]:data-[position=middle]:rounded-br data-[me=true]:data-[position=middle]:rounded-tr
         data-[me=true]:data-[position=bottom]:rounded-tr
@@ -29,15 +29,15 @@
         data-[me=true]:focus-visible:ring-indigo-300 dark:data-[me=true]:focus-visible:ring-white/70
     "
 >
-        <p>{message.body}</p>
-        <time
-            datetime={message.sentAt.toISOString()}
-            class="
-            hidden group-focus:block text-xs text-right first-letter:capitalize
-            group-data-[me=true]:text-indigo-100
-            group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
-            "
-        >
-            {exactTime}
-        </time>
+    <p>{message.body}</p>
+    <time
+        datetime={message.sentAt.toISOString()}
+        class="
+        hidden group-focus:block text-xs text-right first-letter:capitalize
+        group-data-[me=true]:text-indigo-100
+        group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
+        "
+    >
+        {exactTime}
+    </time>
 </div>
