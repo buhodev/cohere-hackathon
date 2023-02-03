@@ -75,7 +75,7 @@
 					</div> -->
 
 				<div
-					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 pb-4 dark:border-neutral-700 dark:bg-neutral-800 bg-neutral-200"
+					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 bg-white pb-4 dark:border-neutral-700 dark:bg-neutral-800"
 				>
 					<nav class="mt-5 flex-1 space-y-1 px-2">
 						{#each navigation as { name, href }}
@@ -83,7 +83,7 @@
 							<a
 								{href}
 								on:click={sidebarDialog.close}
-								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium hover:ring focus-visible:outline-none focus-visible:ring ring-offset-2 ring-offset-transparent
+								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium ring-offset-2 ring-offset-transparent hover:ring focus-visible:outline-none focus-visible:ring
 										{active
 									? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 									: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
