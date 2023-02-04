@@ -38,6 +38,7 @@
 		code: 'KeyL',
 		callback: () => {
 			$page.params.lang == 'en' ? switchLocale('es') : switchLocale('en');
+			commandPaletteDialog.close();
 		}
 	}}
 	use:shortcut={{
@@ -85,7 +86,9 @@
 	</div>
 </div>
 
-<CommandPalette />
+{#if $commandPaletteDialog.expanded}
+	<CommandPalette />
+{/if}
 
 <Confetti />
 
