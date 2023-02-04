@@ -13,6 +13,7 @@
 	import { showConfetti, sidebarDialog } from '$lib/stores';
 	import { commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
+	import { switchLocale, toggleTheme } from '$lib/utils';
 	export let data: LayoutData;
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
@@ -27,6 +28,19 @@
 <svelte:window
 	use:shortcut={{ code: 'Escape', callback: commandPaletteDialog.close }}
 	use:shortcut={{ control: true, code: 'KeyK', callback: commandPaletteDialog.open }}
+	use:shortcut={{ control: true, code: 'Slash', callback: commandPaletteDialog.open }}
+	use:shortcut={{
+		control: true,
+		code: 'KeyM',
+		callback: toggleTheme
+	}}
+	use:shortcut={{
+		control: true,
+		code: 'KeyL',
+		callback: () => {
+			$page.params.lang == 'en' ? switchLocale('es') : switchLocale('en');
+		}
+	}}
 	use:shortcut={{
 		control: true,
 		code: 'KeyP',
