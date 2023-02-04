@@ -3,8 +3,8 @@
 	import RangeSlider from '$lib/components/playground/RangeSlider.svelte';
 	import InputText from '$lib/components/playground/InputText.svelte';
 	import Button from '$lib/components/playground/Button.svelte';
-	import InputHeading from './InputHeading.svelte';
-	import InputCheckbox from './InputCheckbox.svelte';
+	import InputCheckbox from '$lib/components/playground/InputCheckbox.svelte';
+	import LL from '$i18n/i18n-svelte';
 
 	export let options = {
 		number_of_words: {
@@ -22,17 +22,21 @@
 
 <form class="flex flex-col space-y-8 pb-4">
 	<h2 class="-mb-4 block text-sm font-medium uppercase text-neutral-700 dark:text-neutral-200">
-		Parameters
+		{$LL.PLAYGROUND.SETTINGS.PARAMETERS()}
 	</h2>
 
-	<InputSelect label="Model" name="model" value={'command-xlarge-nightly'} />
+	<InputSelect
+		label={$LL.PLAYGROUND.SETTINGS.MODEL()}
+		name="model"
+		value={'command-xlarge-nightly'}
+	/>
 
 	<RangeSlider
 		value={300}
 		min={2}
 		max={2048}
 		step={2}
-		label="Number of words"
+		label={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS()}
 		name="number-of-words"
 	/>
 
@@ -41,14 +45,14 @@
 		min={0}
 		max={2}
 		step={0.1}
-		label="Randomness"
-		subtitle="Temperature"
+		label={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.LABEL()}
+		subtitle={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.SUBTITLE()}
 		name="randomness"
 	/>
 
 	<InputText
-		label="Stop sequence"
-		subtitle="Type and press tab or enter"
+		label={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.LABEL()}
+		subtitle={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.SUBTITLE()}
 		name="stop-sequence"
 		placeholder="--"
 		value=""
@@ -59,7 +63,7 @@
 			class="flex cursor-pointer list-none items-center justify-between overflow-hidden rounded-md font-medium focus:outline-none focus-visible:ring"
 		>
 			<h3 class="block text-sm font-medium uppercase text-neutral-700 dark:text-neutral-200">
-				Advanced Parameters
+				{$LL.PLAYGROUND.SETTINGS.ADVANCED_PARAMETERS()}
 			</h3>
 			<span class="transition group-open:rotate-180">
 				<svg
@@ -76,14 +80,28 @@
 			</span>
 		</summary>
 		<div class="mt-4 flex flex-col space-y-6">
-			<RangeSlider value={0} min={0} max={500} step={1} label="Top-K" name="top-k" />
-			<RangeSlider value={0.75} min={0} max={1} step={0.01} label="Top-P" name="top-p" />
+			<RangeSlider
+				value={0}
+				min={0}
+				max={500}
+				step={1}
+				label={$LL.PLAYGROUND.SETTINGS.TOP_K()}
+				name="top-k"
+			/>
+			<RangeSlider
+				value={0.75}
+				min={0}
+				max={1}
+				step={0.01}
+				label={$LL.PLAYGROUND.SETTINGS.TOP_P()}
+				name="top-p"
+			/>
 			<RangeSlider
 				value={0}
 				min={0}
 				max={1}
 				step={0.01}
-				label="Frequency penalty"
+				label={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY()}
 				name="frequency-penalty"
 			/>
 			<RangeSlider
@@ -91,11 +109,15 @@
 				min={0}
 				max={1}
 				step={0.01}
-				label="Presence penalty"
+				label={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY()}
 				name="presence-penalty"
 			/>
 
-			<InputCheckbox label="Show likelihood" name="show-likelihood" checked={false} />
+			<InputCheckbox
+				label={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD()}
+				name="show-likelihood"
+				checked={false}
+			/>
 		</div>
 	</details>
 

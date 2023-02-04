@@ -6,6 +6,7 @@
 	import Message from '$lib/components/Message.svelte';
 	import PaperAirplaneIcon from '$lib/icons/24/solid/paper-airplane.svg?component';
 	import LoadingMessage from '$lib/components/LoadingMessage.svelte';
+	import LL from '$i18n/i18n-svelte';
 
 	export let data: PageData;
 	export let form: ActionData;
@@ -73,7 +74,7 @@
 					sentByCurrentUser={me}
 				/>
 			{:else}
-				<div class="h-96 w-full rounded-md">Empty State</div>
+				<div class="h-96 w-full rounded-md">{$LL.CHAT.EMPTY_STATE()}</div>
 			{/each}
 			{#if loading}
 				<LoadingMessage />
@@ -87,7 +88,7 @@
 		use:enhance={submitMessage}
 		class="mx-auto w-full max-w-4xl px-6 sm:px-6 md:px-8"
 	>
-		<label for="message" class="sr-only">Quick message</label>
+		<label for="message" class="sr-only">{$LL.CHAT.INPUT_LABEL()}</label>
 		<div class="relative flex w-full items-center">
 			<span
 				class="absolute text-neutral-500 sm:text-sm"
@@ -108,10 +109,10 @@
 			/>
 			<div class="absolute inset-y-0 right-0 flex py-2 pr-1.5">
 				<button
-					title="Send message"
+					title={$LL.CHAT.SEND_BUTTON()}
 					class="inline-flex items-center rounded text-neutral-400 hover:scale-105 hover:text-neutral-500 focus-visible:text-neutral-500 focus-visible:outline-none focus-visible:ring active:scale-95 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400"
 				>
-					<span class="sr-only">Send message</span>
+					<span class="sr-only">{$LL.CHAT.SEND_BUTTON()}</span>
 					<PaperAirplaneIcon class="h-6 w-6" />
 				</button>
 			</div>

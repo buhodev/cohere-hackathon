@@ -13,6 +13,6 @@ export const load = (async ({ parent }) => {
 	const $LL = get(LL);
 	console.info($LL.log({ fileName: '+page.ts' }));
 	return {
-		title: $LL.HI()
+		title: $LL.HOME.HI()
 	};
 }) satisfies PageLoad;

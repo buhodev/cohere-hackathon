@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LL from '$i18n/i18n-svelte';
 	import { page } from '$app/stores';
 	import { locale } from '$i18n/i18n-svelte';
 	import { fly, fade } from 'svelte/transition';
@@ -7,14 +8,14 @@
 	import HomeIcon from '$lib/icons/24/outline/home.svg?component';
 	import BeakerIcon from '$lib/icons/24/outline/beaker.svg?component';
 	import ChatBubbleBottomCenterTextIcon from '$lib/icons/24/outline/chat-bubble-bottom-center-text.svg?component';
-	import ThemeSwitcher from './ThemeSwitcher.svelte';
-	import LocaleSwitcher from './LocaleSwitcher.svelte';
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+	import LocaleSwitcher from '$lib/components/LocaleSwitcher.svelte';
 	import { sidebarDialog } from '$lib/stores';
 
 	$: navigation = [
-		{ name: 'Home', href: `/${$locale}` },
-		{ name: 'Chat', href: `/${$locale}/chat` },
-		{ name: 'Playground', href: `/${$locale}/playground` }
+		{ name: $LL.SIDEBAR.HOME(), id: 'home', href: `/${$locale}` },
+		{ name: $LL.SIDEBAR.CHAT(), id: 'chat', href: `/${$locale}/chat` },
+		{ name: $LL.SIDEBAR.PLAYGROUND(), id: 'playground', href: `/${$locale}/playground` }
 	];
 </script>
 
@@ -45,7 +46,7 @@
 						type="button"
 						class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 					>
-						<span class="sr-only">Close sidebar</span>
+						<span class="sr-only">{$LL.SIDEBAR.CLOSE_SIDEBAR()}</span>
 						<XMarkIcon class="h-6 w-6 text-white" />
 					</button>
 				</div>
@@ -78,7 +79,7 @@
 					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 bg-white pb-4 dark:border-neutral-700 dark:bg-neutral-800"
 				>
 					<nav class="mt-5 flex-1 space-y-1 px-2">
-						{#each navigation as { name, href }}
+						{#each navigation as { name, id, href }}
 							{@const active = $page.url.pathname == href}
 							<a
 								{href}
@@ -88,19 +89,19 @@
 									? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 									: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
 							>
-								{#if name == 'Home'}
+								{#if id == 'home'}
 									<HomeIcon
 										class="mr-4 h-6 w-6 flex-shrink-0 {active
 											? 'text-neutral-500 dark:text-neutral-300'
 											: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 									/>
-								{:else if name == 'Playground'}
+								{:else if id == 'playground'}
 									<BeakerIcon
 										class="mr-4 h-6 w-6 flex-shrink-0 {active
 											? 'text-neutral-500 dark:text-neutral-300'
 											: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 									/>
-								{:else if name == 'Chat'}
+								{:else if id == 'chat'}
 									<ChatBubbleBottomCenterTextIcon
 										class="mr-4 h-6 w-6 flex-shrink-0 {active
 											? 'text-neutral-500 dark:text-neutral-300'
@@ -159,7 +160,7 @@
 			class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 pb-4 dark:border-neutral-700 dark:bg-neutral-800"
 		>
 			<nav class="mt-5 flex-1 space-y-1 px-2">
-				{#each navigation as { name, href }}
+				{#each navigation as { name, id, href }}
 					{@const active = $page.url.pathname == href}
 					<a
 						{href}
@@ -168,19 +169,19 @@
 							? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 							: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
 					>
-						{#if name == 'Home'}
+						{#if id == 'home'}
 							<HomeIcon
 								class="mr-3 h-6 w-6 flex-shrink-0 {active
 									? 'text-neutral-500 dark:text-neutral-300'
 									: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 							/>
-						{:else if name == 'Playground'}
+						{:else if id == 'playground'}
 							<BeakerIcon
 								class="mr-3 h-6 w-6 flex-shrink-0 {active
 									? 'text-neutral-500 dark:text-neutral-300'
 									: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 							/>
-						{:else if name == 'Chat'}
+						{:else if id == 'chat'}
 							<ChatBubbleBottomCenterTextIcon
 								class="mr-3 h-6 w-6 flex-shrink-0 {active
 									? 'text-neutral-500 dark:text-neutral-300'

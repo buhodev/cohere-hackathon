@@ -41,7 +41,7 @@
 					class:text-white={l === $locale}
 					href={`${replaceLocaleInUrl($page.url, l)}`}
 				>
-					{$LL.LOCALES[l]()}
+					{$LL.SIDEBAR.LOCALES[l]()}
 				</a>
 			</li>
 		{/each}
@@ -49,7 +49,7 @@
 </noscript>
 
 <div class="language-toggle w-24">
-	<label class="sr-only" for="change-language">{$LL.LOCALES.description}</label>
+	<label class="sr-only" for="change-language">{$LL.SIDEBAR.LOCALES.DESCRIPTION()}</label>
 	<select
 		bind:value
 		on:change={() => switchLocale(value)}
@@ -58,7 +58,7 @@
 		class="block w-full rounded-lg border-transparent bg-neutral-50 py-1 px-2 text-sm text-neutral-900 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400 dark:focus:ring-indigo-500"
 	>
 		{#each locales as l}
-			<option selected={l === $locale} value={l}>{$LL.LOCALES[l]()}</option>
+			<option selected={l === $locale} value={l}>{$LL.SIDEBAR.LOCALES[l]()}</option>
 		{/each}
 	</select>
 </div>

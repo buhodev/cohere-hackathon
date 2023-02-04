@@ -1,4 +1,6 @@
 <script lang="ts">
+	import LL from '$i18n/i18n-svelte';
+
 	export let loading: boolean = false;
 </script>
 
@@ -14,7 +16,7 @@
 	>
 		<span class="inline-flex items-center gap-px">
 			{#if loading}
-				Running
+				{$LL.PLAYGROUND.SETTINGS.BUTTON.LOADING()}
 				<span class="ml-1 inline-flex items-center gap-px">
 					<span class="mx-px h-1.5 w-1.5 animate-blink rounded-full bg-indigo-300" />
 					<span
@@ -25,7 +27,7 @@
 					/>
 				</span>
 			{:else}
-				Run
+				{$LL.PLAYGROUND.SETTINGS.BUTTON.IDLE()}
 			{/if}
 		</span>
 	</span>

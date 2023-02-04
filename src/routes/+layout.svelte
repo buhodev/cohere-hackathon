@@ -10,8 +10,7 @@
 	import Bars3Icon from '$lib/icons/24/outline/bars-3.svg?component';
 	import Confetti from '$lib/components/Confetti.svelte';
 	import PlaygroundSettings from '$lib/components/playground/PlaygroundSettings.svelte';
-	import { showConfetti, sidebarDialog } from '$lib/stores';
-	import { commandPaletteDialog } from '$lib/stores';
+	import { showConfetti, sidebarDialog, commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
 	import { switchLocale, toggleTheme } from '$lib/utils';
 	export let data: LayoutData;
@@ -51,7 +50,7 @@
 <a
 	href="{$page.url.pathname}/#content"
 	class="absolute z-20 hidden translate-x-2 -translate-y-10 rounded-md py-1 px-2 hover:ring focus:translate-y-2 focus-visible:outline-none focus-visible:ring md:inline-block"
-	>skip navigation</a
+	>{$LL.SIDEBAR.SKIP_NAVIGATION()}</a
 >
 
 <Sidebar />
@@ -66,7 +65,7 @@
 			type="button"
 			class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-xl text-neutral-500 hover:text-neutral-900 hover:ring hover:ring-inset focus-visible:outline-none focus-visible:ring focus-visible:ring-inset dark:hover:text-white dark:focus-visible:text-white"
 		>
-			<span class="sr-only">Open sidebar</span>
+			<span class="sr-only">{$LL.SIDEBAR.OPEN_SIDEBAR()}</span>
 			<Bars3Icon class="h-6 w-6" />
 		</button>
 	</div>
