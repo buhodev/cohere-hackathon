@@ -12,6 +12,18 @@
 	let container: HTMLElement;
 	let autoscroll: boolean;
 	let loading = false;
+	let query = '';
+	let clientWidth: number;
+	let word = '';
+
+	let commands = ['/say', '/generate', '/summarize', '/fix', '/translate', '/complete'];
+	$: {
+		if (query[0] === '/') {
+			word = commands.filter((element) => element.toLowerCase().includes(query))[0];
+		}
+		if (query.length == 0) word = '';
+	}
+	$: prediction = word?.slice(query.length) ?? '';
 
 	beforeUpdate(() => {
 		autoscroll =
@@ -77,8 +89,16 @@
 	>
 		<label for="message" class="sr-only">Quick message</label>
 		<div class="relative flex w-full items-center">
+			<span
+				class="absolute text-neutral-500 sm:text-sm"
+				style="top: 13px; left: {clientWidth + 13}px">{prediction}</span
+			>
+			<div class="pointer-events-none absolute inline-block opacity-0 sm:text-sm" bind:clientWidth>
+				{query}
+			</div>
 			<input
 				value={form?.message ?? ''}
+				on:input={(e) => (query = e?.target?.value || '')}
 				autocomplete="off"
 				autofocus
 				type="text"
