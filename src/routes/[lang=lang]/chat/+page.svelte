@@ -16,15 +16,46 @@
 	let query = '';
 	let clientWidth: number;
 	let word = '';
+	let input: HTMLInputElement;
 
-	let commands = ['/say', '/generate', '/summarize', '/fix', '/translate', '/complete'];
+	// const uid = (() => {
+	// 	let n = -1;
+	// 	return () => {
+	// 		n++;
+	// 		return n;
+	// 	};
+	// })();
+
+	const suggestions = [
+		{ description: 'Generate audio from message', command: '/say' },
+		{ description: 'Generate message from prompt', command: '/generate' },
+		{ description: 'Summarize the message', command: '/summarize' },
+		{ description: 'Correct errors in the message', command: '/fix' },
+		{ description: 'Translate message to Spanish/English', command: '/translate' },
+		{ description: 'Complete message with missing content', command: '/complete' }
+	];
+
+	$: filteredSuggestions = [];
+
+	$: isSuggestionsOpen = !!filteredSuggestions.length;
+	$: prediction = word?.slice(query.length) ?? '';
 	$: {
 		if (query[0] === '/') {
-			word = commands.filter((element) => element.toLowerCase().includes(query))[0];
+			word = suggestions.filter((element) => element.command.toLowerCase().includes(query))[0]
+				?.command;
+			filteredSuggestions = suggestions.filter((suggestion) =>
+				suggestion.command.toLowerCase().includes(query)
+			);
 		}
-		if (query.length == 0) word = '';
+		if (query.length == 0) {
+			filteredSuggestions = [];
+			word = '';
+		}
+		// if (!word?.includes(query)) {
+		// 	isSuggestionsOpen = false;
+		// 	prediction = ''
+		// }
 	}
-	$: prediction = word?.slice(query.length) ?? '';
 
 	beforeUpdate(() => {
 		autoscroll =
@@ -56,6 +87,30 @@
 			await update();
 			loading = false;
 		};
+	};
+
+	const handleKeydown = (e: KeyboardEvent) => {
+		if (word && (e.code === 'ArrowRight' || e.code === 'Tab' || e.code === 'Space')) {
+			e.preventDefault();
+			input.value = word + ' ';
+			prediction = '';
+			filteredSuggestions = [];
+		}
+	};
+
+	const handleClick = (command: string) => {
+		input.value = command + ' ';
+		prediction = '';
+		filteredSuggestions = [];
+		input.focus();
+	};
+
+	const handleMouseover = (command: string) => {
+		prediction = command?.slice(query.length) ?? '';
+		word = command;
+	};
+	const handleMouseout = () => {
+		prediction = word?.slice(query.length) ?? '';
 	};
 </script>
 
@@ -97,9 +152,28 @@
 			<div class="pointer-events-none absolute inline-block opacity-0 sm:text-sm" bind:clientWidth>
 				{query}
 			</div>
+			{#if isSuggestionsOpen}
+				<div
+					class="absolute inset-x-0 bottom-16 rounded-lg border bg-white py-2 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 sm:bottom-14"
+				>
+					{#each filteredSuggestions as { description, command }}
+						<div
+							on:click={() => handleClick(command)}
+							on:mouseover={() => handleMouseover(command)}
+							on:mouseout={handleMouseout}
+							class="flex justify-between py-1.5 px-4 text-sm hover:bg-neutral-200 dark:hover:bg-neutral-700"
+						>
+							<span class="inline-block">{description}</span>
+							<span class="inline-block w-20 text-neutral-500">{command}</span>
+						</div>
+					{/each}
+				</div>
+			{/if}
 			<input
 				value={form?.message ?? ''}
 				on:input={(e) => (query = e?.target?.value || '')}
+				on:keydown={handleKeydown}
+				bind:this={input}
 				autocomplete="off"
 				autofocus
 				type="text"
