@@ -40,6 +40,14 @@ const es: Translation = {
 		SEND_BUTTON: 'Enviar mensaje',
 		ERROR_MESSAGES: {
 			EMPTY_MESSAGE: 'No puedes enviar un mensaje vacío.'
+		},
+		COMMANDS: {
+			SAY: { description: 'Generar audio mediante mensaje', command: '/di' },
+			GENERATE: { description: 'Generar mensaje mediante sugerencia', command: '/genera' },
+			SUMMARIZE: { description: 'Resumir mensaje', command: '/resume' },
+			FIX: { description: 'Corregir errores del mensaje', command: '/corrige' },
+			TRANSLATE: { description: 'Traducir mensaje a inglés/español', command: '/traduce' },
+			COMPLETE: { description: 'Completar mensaje con contenido faltante', command: '/completa' }
 		}
 	},
 	PLAYGROUND: {
@@ -58,7 +66,7 @@ const es: Translation = {
 			RANDOMNESS: {
 				LABEL: 'Aleatoriedad',
 				DESCRIPTION:
-					'Controle el aspecto de aleatoriedad de los tokens que el modelo elige para la salida. El valor de 1 es un buen punto de partida para experimentar. Los valores más bajos se utilizan en tareas con una respuesta "correcta" (por ejemplo, respuesta a preguntas o resumen). Los valores más altos permiten que el modelo genere resultados más "creativos".',
+					'Controle el aspecto de aleatoriedad de los tokens que el modelo elige para la salida. El valor de 1 es un buen punto de partida para experimentarZ. Los valores más bajos se utilizan en tareas con una respuesta "correcta" (por ejemplo, respuesta a preguntas o resumen). Los valores más altos permiten que el modelo genere resultados más "creativos".',
 				SUBTITLE: 'Temperatura'
 			},
 			STOP_SEQUENCE: {

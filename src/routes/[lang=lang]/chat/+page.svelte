@@ -27,12 +27,12 @@
 	// })();
 
 	const suggestions = [
-		{ description: 'Generate audio from message', command: '/say' },
-		{ description: 'Generate message from prompt', command: '/generate' },
-		{ description: 'Summarize the message', command: '/summarize' },
-		{ description: 'Correct errors in the message', command: '/fix' },
-		{ description: 'Translate message to Spanish/English', command: '/translate' },
-		{ description: 'Complete message with missing content', command: '/complete' }
+		{ description: $LL.CHAT.COMMANDS.SAY.description(), command: '/say' },
+		{ description: $LL.CHAT.COMMANDS.GENERATE.description(), command: '/generate' },
+		{ description: $LL.CHAT.COMMANDS.SUMMARIZE.description(), command: '/summarize' },
+		{ description: $LL.CHAT.COMMANDS.FIX.description(), command: '/fix' },
+		{ description: $LL.CHAT.COMMANDS.TRANSLATE.description(), command: '/translate' },
+		{ description: $LL.CHAT.COMMANDS.COMPLETE.description(), command: '/complete' }
 	];
 
 	$: filteredSuggestions = [];

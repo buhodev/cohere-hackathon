@@ -130,6 +130,68 @@ type RootTranslation = {
 			 */
 			EMPTY_MESSAGE: string
 		}
+		COMMANDS: {
+			SAY: {
+				/**
+				 * G​e​n​e​r​a​t​e​ ​a​u​d​i​o​ ​f​r​o​m​ ​m​e​s​s​a​g​e
+				 */
+				description: string
+				/**
+				 * /​s​a​y
+				 */
+				command: string
+			}
+			GENERATE: {
+				/**
+				 * G​e​n​e​r​a​t​e​ ​m​e​s​s​a​g​e​ ​f​r​o​m​ ​p​r​o​m​p​t
+				 */
+				description: string
+				/**
+				 * /​g​e​n​e​r​a​t​e
+				 */
+				command: string
+			}
+			SUMMARIZE: {
+				/**
+				 * S​u​m​m​a​r​i​z​e​ ​t​h​e​ ​m​e​s​s​a​g​e
+				 */
+				description: string
+				/**
+				 * /​s​u​m​m​a​r​i​z​e
+				 */
+				command: string
+			}
+			FIX: {
+				/**
+				 * C​o​r​r​e​c​t​ ​e​r​r​o​r​s​ ​i​n​ ​t​h​e​ ​m​e​s​s​a​g​e
+				 */
+				description: string
+				/**
+				 * /​f​i​x
+				 */
+				command: string
+			}
+			TRANSLATE: {
+				/**
+				 * T​r​a​n​s​l​a​t​e​ ​m​e​s​s​a​g​e​ ​t​o​ ​S​p​a​n​i​s​h​/​E​n​g​l​i​s​h
+				 */
+				description: string
+				/**
+				 * /​t​r​a​n​s​l​a​t​e
+				 */
+				command: string
+			}
+			COMPLETE: {
+				/**
+				 * C​o​m​p​l​e​t​e​ ​m​e​s​s​a​g​e​ ​w​i​t​h​ ​m​i​s​s​i​n​g​ ​c​o​n​t​e​n​t
+				 */
+				description: string
+				/**
+				 * /​c​o​m​p​l​e​t​e
+				 */
+				command: string
+			}
+		}
 	}
 	PLAYGROUND: {
 		SETTINGS: {
@@ -368,6 +430,68 @@ export type TranslationFunctions = {
 			 * You can't send an empty message.
 			 */
 			EMPTY_MESSAGE: () => LocalizedString
+		}
+		COMMANDS: {
+			SAY: {
+				/**
+				 * Generate audio from message
+				 */
+				description: () => LocalizedString
+				/**
+				 * /say
+				 */
+				command: () => LocalizedString
+			}
+			GENERATE: {
+				/**
+				 * Generate message from prompt
+				 */
+				description: () => LocalizedString
+				/**
+				 * /generate
+				 */
+				command: () => LocalizedString
+			}
+			SUMMARIZE: {
+				/**
+				 * Summarize the message
+				 */
+				description: () => LocalizedString
+				/**
+				 * /summarize
+				 */
+				command: () => LocalizedString
+			}
+			FIX: {
+				/**
+				 * Correct errors in the message
+				 */
+				description: () => LocalizedString
+				/**
+				 * /fix
+				 */
+				command: () => LocalizedString
+			}
+			TRANSLATE: {
+				/**
+				 * Translate message to Spanish/English
+				 */
+				description: () => LocalizedString
+				/**
+				 * /translate
+				 */
+				command: () => LocalizedString
+			}
+			COMPLETE: {
+				/**
+				 * Complete message with missing content
+				 */
+				description: () => LocalizedString
+				/**
+				 * /complete
+				 */
+				command: () => LocalizedString
+			}
 		}
 	}
 	PLAYGROUND: {

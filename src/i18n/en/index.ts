@@ -39,6 +39,14 @@ const en: BaseTranslation = {
 		SEND_BUTTON: 'Send message',
 		ERROR_MESSAGES: {
 			EMPTY_MESSAGE: "You can't send an empty message."
+		},
+		COMMANDS: {
+			SAY: { description: 'Generate audio from message', command: '/say' },
+			GENERATE: { description: 'Generate message from prompt', command: '/generate' },
+			SUMMARIZE: { description: 'Summarize the message', command: '/summarize' },
+			FIX: { description: 'Correct errors in the message', command: '/fix' },
+			TRANSLATE: { description: 'Translate message to Spanish/English', command: '/translate' },
+			COMPLETE: { description: 'Complete message with missing content', command: '/complete' }
 		}
 	},
 	PLAYGROUND: {
