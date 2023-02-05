@@ -2,12 +2,13 @@
 	import InputHeading from '$lib/components/playground/InputHeading.svelte';
 
 	export let label: string;
+	export let description: string;
 	export let name: string;
 	export let value: 'command-xlarge-nightly' | 'xlarge' | 'medium';
 </script>
 
 <div>
-	<InputHeading {label} {name} />
+	<InputHeading {label} {description} {name} />
 	<select
 		{name}
 		id={name}

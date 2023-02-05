@@ -26,7 +26,8 @@
 	</h2>
 
 	<InputSelect
-		label={$LL.PLAYGROUND.SETTINGS.MODEL()}
+		label={$LL.PLAYGROUND.SETTINGS.MODEL.LABEL()}
+		description={$LL.PLAYGROUND.SETTINGS.MODEL.DESCRIPTION()}
 		name="model"
 		value={'command-xlarge-nightly'}
 	/>
@@ -36,7 +37,8 @@
 		min={2}
 		max={2048}
 		step={2}
-		label={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS()}
+		label={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS.LABEL()}
+		description={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS.DESCRIPTION()}
 		name="number-of-words"
 	/>
 
@@ -46,12 +48,14 @@
 		max={2}
 		step={0.1}
 		label={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.LABEL()}
+		description={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.DESCRIPTION()}
 		subtitle={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.SUBTITLE()}
 		name="randomness"
 	/>
 
 	<InputText
 		label={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.LABEL()}
+		description={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.DESCRIPTION()}
 		subtitle={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.SUBTITLE()}
 		name="stop-sequence"
 		placeholder="--"
@@ -85,7 +89,8 @@
 				min={0}
 				max={500}
 				step={1}
-				label={$LL.PLAYGROUND.SETTINGS.TOP_K()}
+				label={$LL.PLAYGROUND.SETTINGS.TOP_K.LABEL()}
+				description={$LL.PLAYGROUND.SETTINGS.TOP_K.DESCRIPTION()}
 				name="top-k"
 			/>
 			<RangeSlider
@@ -93,7 +98,8 @@
 				min={0}
 				max={1}
 				step={0.01}
-				label={$LL.PLAYGROUND.SETTINGS.TOP_P()}
+				label={$LL.PLAYGROUND.SETTINGS.TOP_P.LABEL()}
+				description={$LL.PLAYGROUND.SETTINGS.TOP_P.DESCRIPTION()}
 				name="top-p"
 			/>
 			<RangeSlider
@@ -101,7 +107,8 @@
 				min={0}
 				max={1}
 				step={0.01}
-				label={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY()}
+				label={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY.LABEL()}
+				description={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY.DESCRIPTION()}
 				name="frequency-penalty"
 			/>
 			<RangeSlider
@@ -109,12 +116,14 @@
 				min={0}
 				max={1}
 				step={0.01}
-				label={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY()}
+				label={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY.LABEL()}
+				description={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY.DESCRIPTION()}
 				name="presence-penalty"
 			/>
 
 			<InputCheckbox
-				label={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD()}
+				label={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD.LABEL()}
+				description={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD.DESCRIPTION()}
 				name="show-likelihood"
 				checked={false}
 			/>

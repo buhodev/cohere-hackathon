@@ -2,6 +2,7 @@
 	import InputHeading from '$lib/components/playground/InputHeading.svelte';
 
 	export let label: string;
+	export let description: string;
 	export let subtitle: string;
 	export let name: string;
 	export let value: string;
@@ -9,7 +10,7 @@
 </script>
 
 <div>
-	<InputHeading {label} {subtitle} {name} />
+	<InputHeading {label} {description} {subtitle} {name} />
 	<input
 		type="text"
 		bind:value

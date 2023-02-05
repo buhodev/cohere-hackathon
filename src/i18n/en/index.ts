@@ -44,22 +44,53 @@ const en: BaseTranslation = {
 	PLAYGROUND: {
 		SETTINGS: {
 			PARAMETERS: 'Parameters',
-			MODEL: 'Model',
-			NUMBER_OF_WORDS: 'Number of words',
+			MODEL: {
+				LABEL: 'Model',
+				DESCRIPTION:
+					'Pick the model you want to use for generation. Baseline models are ordered from smaller models to larger ones. Small models are faster, while large models have a better grasp of language and are more able to capture and replicate the patterns in the input prompt.'
+			},
+			NUMBER_OF_WORDS: {
+				LABEL: 'Number of words',
+				DESCRIPTION:
+					'Determines how much text to generate. 3 tokens is about 1 word. Tokens are often parts of words, but can also be an entire word or punctuation.'
+			},
 			RANDOMNESS: {
 				LABEL: 'Randomness',
+				DESCRIPTION:
+					'Control the randomness aspect of which tokens the model picks for output. Value of 1 is a good starting point for experimentation. Lower values are used in tasks with a “correct” answer (e.g. question answering or summarization). Higher values enable the model to generate more “creative” outputs.',
 				SUBTITLE: 'Temperature'
 			},
 			STOP_SEQUENCE: {
 				LABEL: 'Stop sequence',
+				DESCRIPTION:
+					"A stop sequence will cut off your generation at the end of the sequence. For line breaks use '\\n'",
 				SUBTITLE: 'Type and press tab or enter'
 			},
 			ADVANCED_PARAMETERS: 'Advanced Parameters',
-			TOP_K: 'Top-K',
-			TOP_P: 'Top-P',
-			FREQUENCY_PENALTY: 'Frequency penalty',
-			PRESENCE_PENALTY: 'Presence penalty',
-			SHOW_LIKELIHOOD: 'Show likelihood',
+			TOP_K: {
+				LABEL: 'Top-K',
+				DESCRIPTION:
+					'When picking output tokens, consider only this number of tokens which have the highest output probability scores. 0 means top-k is not used for picking output tokens.'
+			},
+			TOP_P: {
+				LABEL: 'Top-P',
+				DESCRIPTION:
+					'Dynamically select the number of tokens to consider. Those are the tokens whose probabilities add up to the top-p value. If both top-k and top-p are enabled, top-p acts after top-k.'
+			},
+			FREQUENCY_PENALTY: {
+				LABEL: 'Frequency penalty',
+				DESCRIPTION:
+					'Defaults to 0.0, max value of 1.0. Can be used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation.'
+			},
+			PRESENCE_PENALTY: {
+				LABEL: 'Presence penalty',
+				DESCRIPTION:
+					'Defaults to 0.0, max value of 1.0. Can be used to reduce repetitiveness of generated tokens. Similar to frequency_penalty, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies.'
+			},
+			SHOW_LIKELIHOOD: {
+				LABEL: 'Show likelihood',
+				DESCRIPTION: 'Show the likelihood of each token in the generated text.'
+			},
 			BUTTON: {
 				IDLE: 'Run',
 				LOADING: 'Loading'
