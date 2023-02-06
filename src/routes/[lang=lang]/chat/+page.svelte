@@ -179,7 +179,7 @@
 				type="text"
 				name="message"
 				id="message"
-				class="block w-full rounded-md border-gray-300 py-3 pr-12 shadow-sm focus:border-transparent focus-visible:border-transparent focus-visible:outline-none focus-visible:ring focus-visible:ring-blue-500/50 dark:border-neutral-700 dark:bg-neutral-800 sm:text-sm"
+				class="block w-full rounded-md border-gray-300 py-3 pr-12 shadow-md focus:border-transparent focus-visible:border-transparent focus-visible:outline-none focus-visible:ring focus-visible:ring-blue-500/50 dark:border-neutral-700 dark:bg-neutral-800 sm:text-sm"
 			/>
 			<div class="absolute inset-y-0 right-0 flex py-2 pr-1.5">
 				<button
