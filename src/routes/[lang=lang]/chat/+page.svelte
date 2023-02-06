@@ -26,13 +26,29 @@
 	// 	};
 	// })();
 
-	const suggestions = [
-		{ description: $LL.CHAT.COMMANDS.SAY.description(), command: '/say' },
-		{ description: $LL.CHAT.COMMANDS.GENERATE.description(), command: '/generate' },
-		{ description: $LL.CHAT.COMMANDS.SUMMARIZE.description(), command: '/summarize' },
-		{ description: $LL.CHAT.COMMANDS.FIX.description(), command: '/fix' },
-		{ description: $LL.CHAT.COMMANDS.TRANSLATE.description(), command: '/translate' },
-		{ description: $LL.CHAT.COMMANDS.COMPLETE.description(), command: '/complete' }
+	$: suggestions = [
+		{ description: $LL.CHAT.COMMANDS.SAY.description(), command: $LL.CHAT.COMMANDS.SAY.command() },
+		{
+			description: $LL.CHAT.COMMANDS.GENERATE.description(),
+			command: $LL.CHAT.COMMANDS.GENERATE.command()
+		},
+		{
+			description: $LL.CHAT.COMMANDS.COMPLETE.description(),
+			command: $LL.CHAT.COMMANDS.COMPLETE.command()
+		},
+		{
+			description: $LL.CHAT.COMMANDS.SUMMARIZE.description(),
+			command: $LL.CHAT.COMMANDS.SUMMARIZE.command()
+		},
+		{ description: $LL.CHAT.COMMANDS.FIX.description(), command: $LL.CHAT.COMMANDS.FIX.command() },
+		{
+			description: $LL.CHAT.COMMANDS.TRANSLATE.description(),
+			command: $LL.CHAT.COMMANDS.TRANSLATE.command()
+		},
+		{
+			description: $LL.CHAT.COMMANDS.DETECT.description(),
+			command: $LL.CHAT.COMMANDS.DETECT.command()
+		}
 	];
 
 	$: filteredSuggestions = [];
@@ -161,7 +177,7 @@
 							on:click={() => handleClick(command)}
 							on:mouseover={() => handleMouseover(command)}
 							on:mouseout={handleMouseout}
-							class="flex justify-between py-1.5 px-4 text-sm hover:bg-neutral-200 dark:hover:bg-neutral-700"
+							class="flex justify-between py-1.5 px-4 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700"
 						>
 							<span class="inline-block">{description}</span>
 							<span class="inline-block w-20 text-neutral-500">{command}</span>

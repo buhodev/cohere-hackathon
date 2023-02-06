@@ -66,10 +66,11 @@ const en: BaseTranslation = {
 		COMMANDS: {
 			SAY: { description: 'Generate audio from message', command: '/say' },
 			GENERATE: { description: 'Generate message from prompt', command: '/generate' },
+			COMPLETE: { description: 'Complete message with missing content', command: '/complete' },
 			SUMMARIZE: { description: 'Summarize the message', command: '/summarize' },
 			FIX: { description: 'Correct errors in the message', command: '/fix' },
 			TRANSLATE: { description: 'Translate message to Spanish/English', command: '/translate' },
-			COMPLETE: { description: 'Complete message with missing content', command: '/complete' }
+			DETECT: { description: "Detect message's language", command: '/detect' }
 		}
 	},
 	PLAYGROUND: {

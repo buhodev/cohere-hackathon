@@ -207,6 +207,16 @@ type RootTranslation = {
 				 */
 				command: string
 			}
+			COMPLETE: {
+				/**
+				 * C​o​m​p​l​e​t​e​ ​m​e​s​s​a​g​e​ ​w​i​t​h​ ​m​i​s​s​i​n​g​ ​c​o​n​t​e​n​t
+				 */
+				description: string
+				/**
+				 * /​c​o​m​p​l​e​t​e
+				 */
+				command: string
+			}
 			SUMMARIZE: {
 				/**
 				 * S​u​m​m​a​r​i​z​e​ ​t​h​e​ ​m​e​s​s​a​g​e
@@ -237,13 +247,13 @@ type RootTranslation = {
 				 */
 				command: string
 			}
-			COMPLETE: {
+			DETECT: {
 				/**
-				 * C​o​m​p​l​e​t​e​ ​m​e​s​s​a​g​e​ ​w​i​t​h​ ​m​i​s​s​i​n​g​ ​c​o​n​t​e​n​t
+				 * D​e​t​e​c​t​ ​m​e​s​s​a​g​e​'​s​ ​l​a​n​g​u​a​g​e
 				 */
 				description: string
 				/**
-				 * /​c​o​m​p​l​e​t​e
+				 * /​d​e​t​e​c​t
 				 */
 				command: string
 			}
@@ -584,6 +594,16 @@ export type TranslationFunctions = {
 				 */
 				command: () => LocalizedString
 			}
+			COMPLETE: {
+				/**
+				 * Complete message with missing content
+				 */
+				description: () => LocalizedString
+				/**
+				 * /complete
+				 */
+				command: () => LocalizedString
+			}
 			SUMMARIZE: {
 				/**
 				 * Summarize the message
@@ -614,13 +634,13 @@ export type TranslationFunctions = {
 				 */
 				command: () => LocalizedString
 			}
-			COMPLETE: {
+			DETECT: {
 				/**
-				 * Complete message with missing content
+				 * Detect message's language
 				 */
 				description: () => LocalizedString
 				/**
-				 * /complete
+				 * /detect
 				 */
 				command: () => LocalizedString
 			}

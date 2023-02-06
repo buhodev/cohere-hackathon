@@ -67,10 +67,11 @@ const es: Translation = {
 		COMMANDS: {
 			SAY: { description: 'Generar audio mediante mensaje', command: '/di' },
 			GENERATE: { description: 'Generar mensaje mediante sugerencia', command: '/genera' },
+			COMPLETE: { description: 'Completar mensaje con contenido faltante', command: '/completa' },
 			SUMMARIZE: { description: 'Resumir mensaje', command: '/resume' },
 			FIX: { description: 'Corregir errores del mensaje', command: '/corrige' },
 			TRANSLATE: { description: 'Traducir mensaje a inglés/español', command: '/traduce' },
-			COMPLETE: { description: 'Completar mensaje con contenido faltante', command: '/completa' }
+			DETECT: { description: 'Detectar el idioma del mensaje', command: '/detecta' }
 		}
 	},
 	PLAYGROUND: {
