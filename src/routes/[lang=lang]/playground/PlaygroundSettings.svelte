@@ -1,9 +1,9 @@
 <script>
-	import InputSelect from '$lib/components/playground/InputSelect.svelte';
-	import RangeSlider from '$lib/components/playground/RangeSlider.svelte';
-	import InputText from '$lib/components/playground/InputText.svelte';
-	import Button from '$lib/components/playground/Button.svelte';
-	import InputCheckbox from '$lib/components/playground/InputCheckbox.svelte';
+	import InputSelect from './InputSelect.svelte';
+	import RangeSlider from './RangeSlider.svelte';
+	import InputText from './InputText.svelte';
+	import InputCheckbox from './InputCheckbox.svelte';
+	import Button from './Button.svelte';
 	import LL from '$i18n/i18n-svelte';
 
 	export let options = {

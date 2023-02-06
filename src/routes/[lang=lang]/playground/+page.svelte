@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import PlaygroundSettings from '$lib/components/playground/PlaygroundSettings.svelte';
+	import PlaygroundSettings from './PlaygroundSettings.svelte';
 	import LL from '$i18n/i18n-svelte';
 
 	export let data: PageData;

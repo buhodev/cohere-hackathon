@@ -1,5 +1,5 @@
 <script lang="ts">
-	import InputHeading from '$lib/components/playground/InputHeading.svelte';
+	import InputHeading from './InputHeading.svelte';
 
 	export let label: string;
 	export let description: string;

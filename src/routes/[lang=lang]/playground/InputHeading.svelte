@@ -1,5 +1,5 @@
 <script lang="ts">
-	import InfoTooltip from '$lib/components/playground/InfoTooltip.svelte';
+	import InfoTooltip from './InfoTooltip.svelte';
 
 	export let label: string;
 	export let subtitle: string | undefined = undefined;
