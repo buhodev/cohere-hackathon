@@ -47,7 +47,7 @@
 	];
 </script>
 
-<div class="mx-auto w-full max-w-4xl px-4 pt-6 sm:px-6 lg:px-8">
+<div class="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
 	<h1 class="pt-12 text-center text-4xl font-light">{$LL.HOME.TITLE()}</h1>
 
 	<div class="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
@@ -83,5 +83,9 @@
 				</div>
 			</div>
 		{/each}
+	</div>
+	<div class="mt-4 flex flex-col space-y-1 text-sm">
+		<a class="font-medium text-indigo-500" href="{$locale}/chat">Go to chat →</a>
+		<a class="font-medium text-indigo-500" href="{$locale}/playground">Go to playground →</a>
 	</div>
 </div>
