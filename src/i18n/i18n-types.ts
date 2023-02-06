@@ -113,15 +113,15 @@ type RootTranslation = {
 			TITLE: string
 			ITEMS: {
 				/**
-				 * G​e​n​e​r​a​t​e​ ​a​n​ ​a​u​d​i​o​ ​s​a​y​i​n​g​:​ ​"​M​y​ ​f​a​v​o​r​i​t​e​ ​p​r​o​g​r​a​m​m​i​n​g​ ​l​a​n​g​u​a​g​e​ ​i​s​ ​C​S​S​"
+				 * "​/​s​a​y​ ​M​y​ ​f​a​v​o​r​i​t​e​ ​p​r​o​g​r​a​m​m​i​n​g​ ​l​a​n​g​u​a​g​e​ ​i​s​ ​C​S​S​"
 				 */
 				'0': string
 				/**
-				 * F​i​x​ ​t​h​e​ ​f​o​l​l​o​w​i​n​g​ ​s​e​n​t​e​n​c​e​:​ ​"​Y​o​u​ ​i​s​ ​v​e​r​y​ ​i​n​t​e​l​l​i​g​e​n​t​"
+				 * "​/​f​i​x​ ​Y​o​u​ ​i​s​ ​v​e​r​y​ ​i​n​t​e​l​l​i​g​e​n​t​"
 				 */
 				'1': string
 				/**
-				 * T​r​a​n​s​l​a​t​e​ ​t​o​ ​S​p​a​n​i​s​h​ ​t​h​e​ ​f​o​l​l​o​w​i​n​g​ ​s​e​n​t​e​n​c​e​:​ ​"​A​r​t​i​f​i​c​i​a​l​ ​i​n​t​e​l​l​i​g​e​n​c​e​ ​w​i​l​l​ ​d​o​m​i​n​a​t​e​ ​t​h​e​ ​w​o​r​l​d​"
+				 * "​/​t​r​a​n​s​l​a​t​e​ ​A​r​t​i​f​i​c​i​a​l​ ​i​n​t​e​l​l​i​g​e​n​c​e​ ​w​i​l​l​ ​d​o​m​i​n​a​t​e​ ​t​h​e​ ​w​o​r​l​d​"
 				 */
 				'2': string
 			}
@@ -141,7 +141,7 @@ type RootTranslation = {
 				 */
 				'1': string
 				/**
-				 * P​r​e​s​s​ ​⌘​K​ ​a​n​y​w​h​e​r​e​ ​i​n​ ​t​h​e​ ​a​p​p​ ​t​o​ ​o​p​e​n​ ​t​h​e​ ​c​o​m​m​a​n​d​ ​p​a​l​e​t​t​e​ ​a​n​d​ ​e​x​p​l​o​r​e​ ​a​l​l​ ​t​h​e​ ​o​p​t​i​o​n​s​.
+				 * P​r​e​s​s​ ​⌘​K​ ​t​o​ ​o​p​e​n​ ​t​h​e​ ​c​o​m​m​a​n​d​ ​p​a​l​e​t​t​e​ ​a​n​d​ ​e​x​p​l​o​r​e​ ​a​l​l​ ​t​h​e​ ​o​p​t​i​o​n​s​.
 				 */
 				'2': string
 			}
@@ -157,11 +157,11 @@ type RootTranslation = {
 				 */
 				'0': string
 				/**
-				 * M​a​y​ ​o​c​a​s​s​i​o​n​a​l​l​y​ ​n​o​t​ ​w​o​r​k​.​ ​R​e​f​r​e​s​h​ ​t​h​e​ ​p​a​g​e​ ​a​n​d​ ​t​r​y​ ​a​g​a​i​n​.
+				 * M​a​y​ ​o​c​a​s​s​i​o​n​a​l​l​y​ ​n​o​t​ ​w​o​r​k​.​ ​R​e​f​r​e​s​h​ ​t​h​e​ ​p​a​g​e​.
 				 */
 				'1': string
 				/**
-				 * T​h​i​s​ ​a​p​p​ ​i​s​ ​c​u​r​r​e​n​t​l​y​ ​i​n​ ​b​e​t​a​,​ ​s​o​ ​k​e​e​p​ ​i​n​ ​m​i​n​d​ ​t​h​a​t​ ​t​h​e​r​e​ ​a​r​e​ ​s​o​m​e​ ​m​i​s​s​i​n​g​ ​f​e​a​t​u​r​e​s​.
+				 * M​a​y​ ​o​c​a​s​s​i​o​n​a​l​l​y​ ​b​e​ ​m​i​s​s​i​n​g​ ​s​o​m​e​ ​f​e​a​t​u​r​e​.
 				 */
 				'2': string
 			}
@@ -490,15 +490,15 @@ export type TranslationFunctions = {
 			TITLE: () => LocalizedString
 			ITEMS: {
 				/**
-				 * Generate an audio saying: "My favorite programming language is CSS"
+				 * "/say My favorite programming language is CSS"
 				 */
 				'0': () => LocalizedString
 				/**
-				 * Fix the following sentence: "You is very intelligent"
+				 * "/fix You is very intelligent"
 				 */
 				'1': () => LocalizedString
 				/**
-				 * Translate to Spanish the following sentence: "Artificial intelligence will dominate the world"
+				 * "/translate Artificial intelligence will dominate the world"
 				 */
 				'2': () => LocalizedString
 			}
@@ -518,7 +518,7 @@ export type TranslationFunctions = {
 				 */
 				'1': () => LocalizedString
 				/**
-				 * Press ⌘K anywhere in the app to open the command palette and explore all the options.
+				 * Press ⌘K to open the command palette and explore all the options.
 				 */
 				'2': () => LocalizedString
 			}
@@ -534,11 +534,11 @@ export type TranslationFunctions = {
 				 */
 				'0': () => LocalizedString
 				/**
-				 * May ocassionally not work. Refresh the page and try again.
+				 * May ocassionally not work. Refresh the page.
 				 */
 				'1': () => LocalizedString
 				/**
-				 * This app is currently in beta, so keep in mind that there are some missing features.
+				 * May ocassionally be missing some feature.
 				 */
 				'2': () => LocalizedString
 			}

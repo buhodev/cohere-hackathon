@@ -34,9 +34,9 @@ const en: BaseTranslation = {
 		EXAMPLES: {
 			TITLE: 'Examples',
 			ITEMS: [
-				'Generate an audio saying: "My favorite programming language is CSS"',
-				'Fix the following sentence: "You is very intelligent"',
-				'Translate to Spanish the following sentence: "Artificial intelligence will dominate the world"'
+				'"/say My favorite programming language is CSS"',
+				'"/fix You is very intelligent"',
+				'"/translate Artificial intelligence will dominate the world"'
 			]
 		},
 		CAPABILITIES: {
@@ -44,15 +44,15 @@ const en: BaseTranslation = {
 			ITEMS: [
 				'Works when JavaScript is disabled.',
 				'Type / in the chat input to open the special commands.',
-				'Press ⌘K anywhere in the app to open the command palette and explore all the options.'
+				'Press ⌘K to open the command palette and explore all the options.'
 			]
 		},
 		LIMITATIONS: {
 			TITLE: 'Limitations',
 			ITEMS: [
 				'May ocassionally generate incorrect information.',
-				'May ocassionally not work. Refresh the page and try again.',
-				'This app is currently in beta, so keep in mind that there are some missing features.'
+				'May ocassionally not work. Refresh the page.',
+				'May ocassionally be missing some feature.'
 			]
 		}
 	},
