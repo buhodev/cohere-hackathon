@@ -4,6 +4,11 @@ const en: BaseTranslation = {
 	log: `This log was called from '{fileName:string}'`,
 	SIDEBAR: {
 		SKIP_NAVIGATION: 'skip navigation',
+		SAVED_CHATS: {
+			NEW_CHAT_BUTTON: 'New chat',
+			NEW_CHAT_NAME: 'New chat',
+			EMPTY_STATE: 'Unable to load history'
+		},
 		HOME: 'Home',
 		CHAT: 'Chat',
 		PLAYGROUND: 'Playground',
@@ -14,6 +19,13 @@ const en: BaseTranslation = {
 			en: 'English',
 			es: 'Español'
 		}
+	},
+	TOASTS: {
+		CHAT_ALREADY_SAVED: 'Chat already saved',
+		CHAT_CREATED: 'Chat created',
+		CHAT_DELETED: 'Chat deleted',
+		CHAT_RENAMED: 'Chat renamed',
+		CHAT_NOT_RENAMED: 'Chat not renamed'
 	},
 	COMMAND_PALETTE: {
 		INPUT_PLACEHOLDER: 'Search...',

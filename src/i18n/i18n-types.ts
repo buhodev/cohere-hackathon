@@ -24,6 +24,20 @@ type RootTranslation = {
 		 * s​k​i​p​ ​n​a​v​i​g​a​t​i​o​n
 		 */
 		SKIP_NAVIGATION: string
+		SAVED_CHATS: {
+			/**
+			 * N​e​w​ ​c​h​a​t
+			 */
+			NEW_CHAT_BUTTON: string
+			/**
+			 * N​e​w​ ​c​h​a​t
+			 */
+			NEW_CHAT_NAME: string
+			/**
+			 * U​n​a​b​l​e​ ​t​o​ ​l​o​a​d​ ​h​i​s​t​o​r​y
+			 */
+			EMPTY_STATE: string
+		}
 		/**
 		 * H​o​m​e
 		 */
@@ -58,6 +72,28 @@ type RootTranslation = {
 			 */
 			es: string
 		}
+	}
+	TOASTS: {
+		/**
+		 * C​h​a​t​ ​a​l​r​e​a​d​y​ ​s​a​v​e​d
+		 */
+		CHAT_ALREADY_SAVED: string
+		/**
+		 * C​h​a​t​ ​c​r​e​a​t​e​d
+		 */
+		CHAT_CREATED: string
+		/**
+		 * C​h​a​t​ ​d​e​l​e​t​e​d
+		 */
+		CHAT_DELETED: string
+		/**
+		 * C​h​a​t​ ​r​e​n​a​m​e​d
+		 */
+		CHAT_RENAMED: string
+		/**
+		 * C​h​a​t​ ​n​o​t​ ​r​e​n​a​m​e​d
+		 */
+		CHAT_NOT_RENAMED: string
 	}
 	COMMAND_PALETTE: {
 		/**
@@ -411,6 +447,20 @@ export type TranslationFunctions = {
 		 * skip navigation
 		 */
 		SKIP_NAVIGATION: () => LocalizedString
+		SAVED_CHATS: {
+			/**
+			 * New chat
+			 */
+			NEW_CHAT_BUTTON: () => LocalizedString
+			/**
+			 * New chat
+			 */
+			NEW_CHAT_NAME: () => LocalizedString
+			/**
+			 * Unable to load history
+			 */
+			EMPTY_STATE: () => LocalizedString
+		}
 		/**
 		 * Home
 		 */
@@ -445,6 +495,28 @@ export type TranslationFunctions = {
 			 */
 			es: () => LocalizedString
 		}
+	}
+	TOASTS: {
+		/**
+		 * Chat already saved
+		 */
+		CHAT_ALREADY_SAVED: () => LocalizedString
+		/**
+		 * Chat created
+		 */
+		CHAT_CREATED: () => LocalizedString
+		/**
+		 * Chat deleted
+		 */
+		CHAT_DELETED: () => LocalizedString
+		/**
+		 * Chat renamed
+		 */
+		CHAT_RENAMED: () => LocalizedString
+		/**
+		 * Chat not renamed
+		 */
+		CHAT_NOT_RENAMED: () => LocalizedString
 	}
 	COMMAND_PALETTE: {
 		/**

@@ -4,6 +4,11 @@ const es: Translation = {
 	log: `Este log fue llamado desde '{fileName:string}'`,
 	SIDEBAR: {
 		SKIP_NAVIGATION: 'saltar navegación',
+		SAVED_CHATS: {
+			NEW_CHAT_BUTTON: 'Nuevo chat',
+			NEW_CHAT_NAME: 'Nuevo chat',
+			EMPTY_STATE: 'No se pudo cargar el historial'
+		},
 		HOME: 'Inicio',
 		CHAT: 'Chat',
 		PLAYGROUND: 'Área de pruebas',
@@ -14,6 +19,13 @@ const es: Translation = {
 			en: 'English',
 			es: 'Español'
 		}
+	},
+	TOASTS: {
+		CHAT_ALREADY_SAVED: 'Chat ya guardado.',
+		CHAT_CREATED: 'Chat creado',
+		CHAT_DELETED: 'Chat borrado',
+		CHAT_RENAMED: 'Chat renombrado',
+		CHAT_NOT_RENAMED: 'No se renombró el chat'
 	},
 	COMMAND_PALETTE: {
 		INPUT_PLACEHOLDER: 'Buscar...',
