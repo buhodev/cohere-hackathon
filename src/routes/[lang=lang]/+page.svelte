@@ -5,7 +5,7 @@
 	console.info($LL.log({ fileName: '+page.svelte' }));
 </script>
 
-<div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
 	<h1 class="text-5xl font-extralight">{$LL.HOME.HI()}</h1>
 	<p>
 		<WrapTranslation message={$LL.HOME.DESCRIPTION()} let:infix>

@@ -50,6 +50,16 @@ const en: BaseTranslation = {
 		}
 	},
 	PLAYGROUND: {
+		INPUT: {
+			LABEL: 'Input',
+			PLACEHOLDER:
+				'Write text such as "Give me an idea for a new reality TV show" and click Run. You can also choose one of our Examples to start.'
+		},
+		OUTPUT: {
+			LABEL: 'Output',
+			PLACEHOLDER:
+				'The generated text will be around 300 words by default. To control the length, change it in Parameters.'
+		},
 		SETTINGS: {
 			PARAMETERS: 'Parameters',
 			MODEL: {

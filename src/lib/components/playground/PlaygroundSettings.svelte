@@ -20,7 +20,7 @@
 	let open = false;
 </script>
 
-<form class="flex flex-col space-y-8 pb-4">
+<div class="flex flex-col space-y-8 pb-4">
 	<h2 class="-mb-4 block text-sm font-medium uppercase text-neutral-700 dark:text-neutral-200">
 		{$LL.PLAYGROUND.SETTINGS.PARAMETERS()}
 	</h2>
@@ -131,4 +131,4 @@
 	</details>
 
 	<Button />
-</form>
+</div>

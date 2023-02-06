@@ -114,7 +114,7 @@
 	};
 </script>
 
-<div class="flex h-full flex-col justify-between space-y-2">
+<div class="flex h-full flex-col justify-between space-y-2 pt-6">
 	<div
 		bind:this={container}
 		style="scrollbar-gutter: stable both-edges;"
@@ -141,7 +141,7 @@
 		method="POST"
 		action="?/sendMessage"
 		use:enhance={submitMessage}
-		class="mx-auto w-full max-w-4xl px-6 sm:px-6 md:px-8"
+		class="mx-auto w-full max-w-4xl px-6 pb-6 sm:px-6 md:px-8"
 	>
 		<label for="message" class="sr-only">{$LL.CHAT.INPUT_LABEL()}</label>
 		<div class="relative flex w-full items-center">

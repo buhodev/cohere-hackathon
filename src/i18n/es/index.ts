@@ -51,6 +51,16 @@ const es: Translation = {
 		}
 	},
 	PLAYGROUND: {
+		INPUT: {
+			LABEL: 'Entrada',
+			PLACEHOLDER:
+				'Escriba un texto como "Dame una idea para un nuevo reality show" y haz clic en Ejecutar. También puede elegir uno de nuestros ejemplos para comenzar.'
+		},
+		OUTPUT: {
+			LABEL: 'Salida',
+			PLACEHOLDER:
+				'El texto generado tendrá unas 300 palabras por defecto. Para controlar la longitud, cámbiela en Parámetros.'
+		},
 		SETTINGS: {
 			PARAMETERS: 'Parámetros',
 			MODEL: {

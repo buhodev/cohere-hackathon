@@ -194,6 +194,26 @@ type RootTranslation = {
 		}
 	}
 	PLAYGROUND: {
+		INPUT: {
+			/**
+			 * I​n​p​u​t
+			 */
+			LABEL: string
+			/**
+			 * W​r​i​t​e​ ​t​e​x​t​ ​s​u​c​h​ ​a​s​ ​"​G​i​v​e​ ​m​e​ ​a​n​ ​i​d​e​a​ ​f​o​r​ ​a​ ​n​e​w​ ​r​e​a​l​i​t​y​ ​T​V​ ​s​h​o​w​"​ ​a​n​d​ ​c​l​i​c​k​ ​R​u​n​.​ ​Y​o​u​ ​c​a​n​ ​a​l​s​o​ ​c​h​o​o​s​e​ ​o​n​e​ ​o​f​ ​o​u​r​ ​E​x​a​m​p​l​e​s​ ​t​o​ ​s​t​a​r​t​.
+			 */
+			PLACEHOLDER: string
+		}
+		OUTPUT: {
+			/**
+			 * O​u​t​p​u​t
+			 */
+			LABEL: string
+			/**
+			 * T​h​e​ ​g​e​n​e​r​a​t​e​d​ ​t​e​x​t​ ​w​i​l​l​ ​b​e​ ​a​r​o​u​n​d​ ​3​0​0​ ​w​o​r​d​s​ ​b​y​ ​d​e​f​a​u​l​t​.​ ​T​o​ ​c​o​n​t​r​o​l​ ​t​h​e​ ​l​e​n​g​t​h​,​ ​c​h​a​n​g​e​ ​i​t​ ​i​n​ ​P​a​r​a​m​e​t​e​r​s​.
+			 */
+			PLACEHOLDER: string
+		}
 		SETTINGS: {
 			/**
 			 * P​a​r​a​m​e​t​e​r​s
@@ -495,6 +515,26 @@ export type TranslationFunctions = {
 		}
 	}
 	PLAYGROUND: {
+		INPUT: {
+			/**
+			 * Input
+			 */
+			LABEL: () => LocalizedString
+			/**
+			 * Write text such as "Give me an idea for a new reality TV show" and click Run. You can also choose one of our Examples to start.
+			 */
+			PLACEHOLDER: () => LocalizedString
+		}
+		OUTPUT: {
+			/**
+			 * Output
+			 */
+			LABEL: () => LocalizedString
+			/**
+			 * The generated text will be around 300 words by default. To control the length, change it in Parameters.
+			 */
+			PLACEHOLDER: () => LocalizedString
+		}
 		SETTINGS: {
 			/**
 			 * Parameters
