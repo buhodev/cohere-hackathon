@@ -170,7 +170,7 @@
 				</div>
 			{/if}
 			<input
-				value={form?.message ?? ''}
+				value={data.example ? data.example : form?.message ?? ''}
 				on:input={(e) => (query = e?.target?.value || '')}
 				on:keydown={handleKeydown}
 				bind:this={input}

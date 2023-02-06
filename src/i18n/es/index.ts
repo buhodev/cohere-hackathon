@@ -31,8 +31,31 @@ const es: Translation = {
 		JUMP_TO: 'Navegar...'
 	},
 	HOME: {
-		HI: 'Bienvenido a SvelteKit',
-		DESCRIPTION: 'Visita <>kit.svelte.dev<> para leer la documentación'
+		TITLE: 'MagicPen',
+		EXAMPLES: {
+			TITLE: 'Ejemplos',
+			ITEMS: [
+				'Genera un audio diciendo: "My favorite programming language is CSS"',
+				'Corrige la siguiente frase: "You is very intelligent"',
+				'Traduce al español la siguiente frase: "Artificial intelligence will dominate the world"'
+			]
+		},
+		CAPABILITIES: {
+			TITLE: 'Capacidades',
+			ITEMS: [
+				'Funciona cuando JavaScript está deshabilitado.',
+				'Escriba / en el chat para abrir los comandos especiales.',
+				'Presione ⌘K en cualquier parte de la aplicación para abrir la paleta de comandos y explorar todas las opciones.'
+			]
+		},
+		LIMITATIONS: {
+			TITLE: 'Limitaciones',
+			ITEMS: [
+				'Ocasionalmente puede generar información incorrecta.',
+				'Ocasionalmente puede no funcionar. Actualice la página y vuelva a intentarlo.',
+				'Esta aplicación se encuentra en versión beta, tenga en cuenta que faltan algunas funcionalidades.'
+			]
+		}
 	},
 	CHAT: {
 		EMPTY_STATE: 'Estado vacío',

@@ -1,6 +1,5 @@
 import { fail } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import type { Actions } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 import getCohereResponse from './getCohereResponse';
 
 let messages = [
@@ -14,7 +13,8 @@ let messages = [
 	}
 ];
 
-export const load = (async () => {
+export const load = (async ({ url }) => {
+	const example = url.searchParams.get('example') ?? '';
 	if (messages.at(-1)?.me) {
 		const text = await getCohereResponse(messages.at(-1).message.body);
 
@@ -30,7 +30,7 @@ export const load = (async () => {
 		messages = messages.concat(reply);
 	}
 
-	return { messages };
+	return { messages, example };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {

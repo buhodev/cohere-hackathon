@@ -103,13 +103,69 @@ type RootTranslation = {
 	}
 	HOME: {
 		/**
-		 * W​e​l​c​o​m​e​ ​t​o​ ​S​v​e​l​t​e​K​i​t
+		 * M​a​g​i​c​P​e​n
 		 */
-		HI: string
-		/**
-		 * V​i​s​i​t​ ​<​>​k​i​t​.​s​v​e​l​t​e​.​d​e​v​<​>​ ​t​o​ ​r​e​a​d​ ​t​h​e​ ​d​o​c​u​m​e​n​t​a​t​i​o​n
-		 */
-		DESCRIPTION: string
+		TITLE: string
+		EXAMPLES: {
+			/**
+			 * E​x​a​m​p​l​e​s
+			 */
+			TITLE: string
+			ITEMS: {
+				/**
+				 * G​e​n​e​r​a​t​e​ ​a​n​ ​a​u​d​i​o​ ​s​a​y​i​n​g​:​ ​"​M​y​ ​f​a​v​o​r​i​t​e​ ​p​r​o​g​r​a​m​m​i​n​g​ ​l​a​n​g​u​a​g​e​ ​i​s​ ​C​S​S​"
+				 */
+				'0': string
+				/**
+				 * F​i​x​ ​t​h​e​ ​f​o​l​l​o​w​i​n​g​ ​s​e​n​t​e​n​c​e​:​ ​"​Y​o​u​ ​i​s​ ​v​e​r​y​ ​i​n​t​e​l​l​i​g​e​n​t​"
+				 */
+				'1': string
+				/**
+				 * T​r​a​n​s​l​a​t​e​ ​t​o​ ​S​p​a​n​i​s​h​ ​t​h​e​ ​f​o​l​l​o​w​i​n​g​ ​s​e​n​t​e​n​c​e​:​ ​"​A​r​t​i​f​i​c​i​a​l​ ​i​n​t​e​l​l​i​g​e​n​c​e​ ​w​i​l​l​ ​d​o​m​i​n​a​t​e​ ​t​h​e​ ​w​o​r​l​d​"
+				 */
+				'2': string
+			}
+		}
+		CAPABILITIES: {
+			/**
+			 * C​a​p​a​b​i​l​i​t​i​e​s
+			 */
+			TITLE: string
+			ITEMS: {
+				/**
+				 * W​o​r​k​s​ ​w​h​e​n​ ​J​a​v​a​S​c​r​i​p​t​ ​i​s​ ​d​i​s​a​b​l​e​d​.
+				 */
+				'0': string
+				/**
+				 * T​y​p​e​ ​/​ ​i​n​ ​t​h​e​ ​c​h​a​t​ ​i​n​p​u​t​ ​t​o​ ​o​p​e​n​ ​t​h​e​ ​s​p​e​c​i​a​l​ ​c​o​m​m​a​n​d​s​.
+				 */
+				'1': string
+				/**
+				 * P​r​e​s​s​ ​⌘​K​ ​a​n​y​w​h​e​r​e​ ​i​n​ ​t​h​e​ ​a​p​p​ ​t​o​ ​o​p​e​n​ ​t​h​e​ ​c​o​m​m​a​n​d​ ​p​a​l​e​t​t​e​ ​a​n​d​ ​e​x​p​l​o​r​e​ ​a​l​l​ ​t​h​e​ ​o​p​t​i​o​n​s​.
+				 */
+				'2': string
+			}
+		}
+		LIMITATIONS: {
+			/**
+			 * L​i​m​i​t​a​t​i​o​n​s
+			 */
+			TITLE: string
+			ITEMS: {
+				/**
+				 * M​a​y​ ​o​c​a​s​s​i​o​n​a​l​l​y​ ​g​e​n​e​r​a​t​e​ ​i​n​c​o​r​r​e​c​t​ ​i​n​f​o​r​m​a​t​i​o​n​.
+				 */
+				'0': string
+				/**
+				 * M​a​y​ ​o​c​a​s​s​i​o​n​a​l​l​y​ ​n​o​t​ ​w​o​r​k​.​ ​R​e​f​r​e​s​h​ ​t​h​e​ ​p​a​g​e​ ​a​n​d​ ​t​r​y​ ​a​g​a​i​n​.
+				 */
+				'1': string
+				/**
+				 * T​h​i​s​ ​a​p​p​ ​i​s​ ​c​u​r​r​e​n​t​l​y​ ​i​n​ ​b​e​t​a​,​ ​s​o​ ​k​e​e​p​ ​i​n​ ​m​i​n​d​ ​t​h​a​t​ ​t​h​e​r​e​ ​a​r​e​ ​s​o​m​e​ ​m​i​s​s​i​n​g​ ​f​e​a​t​u​r​e​s​.
+				 */
+				'2': string
+			}
+		}
 	}
 	CHAT: {
 		/**
@@ -424,13 +480,69 @@ export type TranslationFunctions = {
 	}
 	HOME: {
 		/**
-		 * Welcome to SvelteKit
+		 * MagicPen
 		 */
-		HI: () => LocalizedString
-		/**
-		 * Visit <>kit.svelte.dev<> to read the documentation
-		 */
-		DESCRIPTION: () => LocalizedString
+		TITLE: () => LocalizedString
+		EXAMPLES: {
+			/**
+			 * Examples
+			 */
+			TITLE: () => LocalizedString
+			ITEMS: {
+				/**
+				 * Generate an audio saying: "My favorite programming language is CSS"
+				 */
+				'0': () => LocalizedString
+				/**
+				 * Fix the following sentence: "You is very intelligent"
+				 */
+				'1': () => LocalizedString
+				/**
+				 * Translate to Spanish the following sentence: "Artificial intelligence will dominate the world"
+				 */
+				'2': () => LocalizedString
+			}
+		}
+		CAPABILITIES: {
+			/**
+			 * Capabilities
+			 */
+			TITLE: () => LocalizedString
+			ITEMS: {
+				/**
+				 * Works when JavaScript is disabled.
+				 */
+				'0': () => LocalizedString
+				/**
+				 * Type / in the chat input to open the special commands.
+				 */
+				'1': () => LocalizedString
+				/**
+				 * Press ⌘K anywhere in the app to open the command palette and explore all the options.
+				 */
+				'2': () => LocalizedString
+			}
+		}
+		LIMITATIONS: {
+			/**
+			 * Limitations
+			 */
+			TITLE: () => LocalizedString
+			ITEMS: {
+				/**
+				 * May ocassionally generate incorrect information.
+				 */
+				'0': () => LocalizedString
+				/**
+				 * May ocassionally not work. Refresh the page and try again.
+				 */
+				'1': () => LocalizedString
+				/**
+				 * This app is currently in beta, so keep in mind that there are some missing features.
+				 */
+				'2': () => LocalizedString
+			}
+		}
 	}
 	CHAT: {
 		/**
