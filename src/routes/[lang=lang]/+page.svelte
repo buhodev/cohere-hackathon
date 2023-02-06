@@ -47,7 +47,7 @@
 	];
 </script>
 
-<div class="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
+<div class="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
 	<h1 class="pt-12 text-center text-4xl font-light">{$LL.HOME.TITLE()}</h1>
 
 	<div class="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
