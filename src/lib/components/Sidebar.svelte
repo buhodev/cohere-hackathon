@@ -16,7 +16,13 @@
 	$: navigation = [
 		{ name: $LL.SIDEBAR.HOME(), id: 'home', href: `/${$locale}` },
 		{ name: $LL.SIDEBAR.CHAT(), id: 'chat', href: `/${$locale}/chat` },
-		{ name: $LL.SIDEBAR.PLAYGROUND(), id: 'playground', href: `/${$locale}/playground` }
+		{ name: $LL.SIDEBAR.PLAYGROUND(), id: 'playground', href: `/${$locale}/playground` },
+		{
+			name: 'Github',
+			id: 'github',
+			href: `https://github.com/buhodev/cohere-hackathon`,
+			external: true
+		}
 	];
 </script>
 
@@ -68,12 +74,13 @@
 					class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 bg-white pb-4 dark:border-neutral-700 dark:bg-neutral-800"
 				>
 					<nav class="mt-5 flex-1 space-y-1 px-2">
-						{#each navigation as { name, id, href }}
+						{#each navigation as { name, id, href, external }}
 							{@const active = $page.url.pathname == href}
 							<a
 								{href}
+								target={external ? '_blank' : ''}
 								on:click={sidebarDialog.close}
-								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium ring-offset-2 ring-offset-transparent hover:ring focus-visible:outline-none focus-visible:ring
+								class="group flex items-center rounded-xl px-2 py-2 text-base font-medium ring-offset-2 ring-offset-transparent focus-visible:outline-none focus-visible:ring
 										{active
 									? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 									: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
@@ -96,6 +103,22 @@
 											? 'text-neutral-500 dark:text-neutral-300'
 											: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 									/>
+								{:else if id == 'github'}
+									<svg
+										class="mr-4 h-6 w-6 flex-shrink-0 text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><path
+											d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+										/><path d="M9 18c-4.51 2-5-2-7-2" /></svg
+									>
 								{/if}
 								{name}
 							</a>
@@ -137,11 +160,12 @@
 			class="mt-auto flex flex-shrink-0 flex-col overflow-y-auto border-t border-neutral-200 pb-4 dark:border-neutral-700 dark:bg-neutral-800"
 		>
 			<nav class="mt-5 flex-1 space-y-1 px-2">
-				{#each navigation as { name, id, href }}
+				{#each navigation as { name, id, href, external }}
 					{@const active = $page.url.pathname == href}
 					<a
 						{href}
-						class="group flex items-center rounded-xl px-2 py-2 text-sm font-medium hover:ring focus-visible:outline-none focus-visible:ring
+						target={external ? '_blank' : ''}
+						class="group flex items-center rounded-xl px-2 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring
 							{active
 							? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-white'
 							: 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:focus-visible:bg-neutral-700 dark:focus-visible:text-white'}"
@@ -164,6 +188,22 @@
 									? 'text-neutral-500 dark:text-neutral-300'
 									: 'text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300'}"
 							/>
+						{:else if id == 'github'}
+							<svg
+								class="mr-3 h-6 w-6 flex-shrink-0 text-neutral-400 group-hover:text-neutral-500 group-focus-visible:text-neutral-500 dark:group-hover:text-neutral-300 dark:group-focus-visible:text-neutral-300"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path
+									d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+								/><path d="M9 18c-4.51 2-5-2-7-2" /></svg
+							>
 						{/if}
 						{name}
 					</a>
