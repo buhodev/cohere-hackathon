@@ -12,6 +12,8 @@
 	import { showConfetti, sidebarDialog, commandPaletteDialog } from '$lib/stores';
 	import { shortcut } from '$lib/actions';
 	import { switchLocale, toggleTheme } from '$lib/utils';
+	import { Toaster } from 'svelte-french-toast';
+
 	export let data: LayoutData;
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
@@ -46,6 +48,8 @@
 		callback: showConfetti.fire
 	}}
 />
+
+<Toaster />
 
 <a
 	href="{$page.url.pathname}/#content"
