@@ -85,7 +85,9 @@
 		{/each}
 	</div>
 	<div class="mt-4 flex flex-col space-y-1 text-sm">
-		<a class="font-medium text-indigo-500" href="{$locale}/chat">Go to chat →</a>
-		<a class="font-medium text-indigo-500" href="{$locale}/playground">Go to playground →</a>
+		<a class="max-w-fit font-medium text-indigo-500" href="{$locale}/chat">Go to chat →</a>
+		<a class="max-w-fit font-medium text-indigo-500" href="{$locale}/playground"
+			>Go to playground →</a
+		>
 	</div>
 </div>
