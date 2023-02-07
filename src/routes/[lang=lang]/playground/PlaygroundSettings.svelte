@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import InputSelect from './InputSelect.svelte';
 	import RangeSlider from './RangeSlider.svelte';
 	import InputText from './InputText.svelte';
 	import InputCheckbox from './InputCheckbox.svelte';
 	import Button from './Button.svelte';
 	import LL from '$i18n/i18n-svelte';
+
+	export let loading: boolean = false;
 
 	export let options = {
 		number_of_words: {
@@ -39,7 +41,7 @@
 		step={2}
 		label={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS.LABEL()}
 		description={$LL.PLAYGROUND.SETTINGS.NUMBER_OF_WORDS.DESCRIPTION()}
-		name="number-of-words"
+		name="number_of_words"
 	/>
 
 	<RangeSlider
@@ -50,14 +52,14 @@
 		label={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.LABEL()}
 		description={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.DESCRIPTION()}
 		subtitle={$LL.PLAYGROUND.SETTINGS.RANDOMNESS.SUBTITLE()}
-		name="randomness"
+		name="temperature"
 	/>
 
 	<InputText
 		label={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.LABEL()}
 		description={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.DESCRIPTION()}
 		subtitle={$LL.PLAYGROUND.SETTINGS.STOP_SEQUENCE.SUBTITLE()}
-		name="stop-sequence"
+		name="stop_sequence"
 		placeholder="--"
 		value=""
 	/>
@@ -91,7 +93,7 @@
 				step={1}
 				label={$LL.PLAYGROUND.SETTINGS.TOP_K.LABEL()}
 				description={$LL.PLAYGROUND.SETTINGS.TOP_K.DESCRIPTION()}
-				name="top-k"
+				name="k"
 			/>
 			<RangeSlider
 				value={0.75}
@@ -100,7 +102,7 @@
 				step={0.01}
 				label={$LL.PLAYGROUND.SETTINGS.TOP_P.LABEL()}
 				description={$LL.PLAYGROUND.SETTINGS.TOP_P.DESCRIPTION()}
-				name="top-p"
+				name="p"
 			/>
 			<RangeSlider
 				value={0}
@@ -109,7 +111,7 @@
 				step={0.01}
 				label={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY.LABEL()}
 				description={$LL.PLAYGROUND.SETTINGS.FREQUENCY_PENALTY.DESCRIPTION()}
-				name="frequency-penalty"
+				name="frequency_penalty"
 			/>
 			<RangeSlider
 				value={0}
@@ -118,17 +120,17 @@
 				step={0.01}
 				label={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY.LABEL()}
 				description={$LL.PLAYGROUND.SETTINGS.PRESENCE_PENALTY.DESCRIPTION()}
-				name="presence-penalty"
+				name="presence_penalty"
 			/>
 
 			<InputCheckbox
 				label={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD.LABEL()}
 				description={$LL.PLAYGROUND.SETTINGS.SHOW_LIKELIHOOD.DESCRIPTION()}
-				name="show-likelihood"
+				name="show_likelihood"
 				checked={false}
 			/>
 		</div>
 	</details>
 
-	<Button />
+	<Button bind:loading />
 </div>

@@ -1,12 +1,25 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import type { PageData, ActionData } from './$types';
 	import PlaygroundSettings from './PlaygroundSettings.svelte';
 	import LL from '$i18n/i18n-svelte';
+	import { enhance, type SubmitFunction } from '$app/forms';
 
 	export let data: PageData;
+	export let form: ActionData;
+
+	$: loading = false;
+
+	const submit: SubmitFunction = ({ form, data: formData }) => {
+		loading = true;
+
+		return async ({ update }) => {
+			await update();
+			loading = false;
+		};
+	};
 </script>
 
-<form class="relative flex h-full">
+<form method="POST" use:enhance={submit} class="relative flex h-full">
 	<div class="mx-auto flex w-full max-w-7xl flex-col space-y-6 px-4 pt-6 sm:px-6 lg:px-8">
 		<div>
 			<label
@@ -18,7 +31,7 @@
 			<div class="mt-1">
 				<textarea
 					placeholder={$LL.PLAYGROUND.INPUT.PLACEHOLDER()}
-					value=""
+					value={form?.input ?? ''}
 					rows="10"
 					name="input"
 					id="input"
@@ -37,7 +50,7 @@
 				<textarea
 					disabled
 					placeholder={$LL.PLAYGROUND.OUTPUT.PLACEHOLDER()}
-					value=""
+					value={form?.output ?? ''}
 					rows="10"
 					name="output"
 					id="output"
@@ -51,7 +64,7 @@
 		class="relative hidden h-full w-72 flex-shrink-0 overflow-y-auto border-l border-gray-200 bg-white pt-6 dark:border-neutral-800 dark:bg-neutral-900 xl:flex xl:flex-col"
 	>
 		<div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-6">
-			<PlaygroundSettings />
+			<PlaygroundSettings bind:loading />
 		</div>
 	</aside>
 </form>
