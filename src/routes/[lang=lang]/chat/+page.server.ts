@@ -1,6 +1,13 @@
 import { fail } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
-import { getResponse } from '$lib/server/getCohereResponse';
+import {
+	getCompletion,
+	getFix,
+	getGeneration,
+	getLanguage,
+	getResponse,
+	getSummary
+} from '$lib/server/getCohereResponse';
 import { getCommand } from '$lib/utils';
 
 let messages = [
@@ -27,10 +34,25 @@ export const load = (async ({ url }) => {
 			id: crypto.randomUUID()
 		};
 
-		if (messages.at(-1)?.type === 'say') {
+		const type = messages.at(-1)?.type;
+		const message = messages.at(-1).message.body.replace(/\/\w+/, '');
+
+		if (type === 'say') {
 			reply.message.body = messages.at(-1)?.message.body.replace('/say ', '');
+		} else if (type === 'generate') {
+			reply.message.body = await getGeneration(message);
+		} else if (type === 'fix') {
+			reply.message.body = await getFix(message);
+		} else if (type === 'complete') {
+			reply.message.body = await getCompletion(message);
+		} else if (type === 'summarize') {
+			reply.message.body = await getSummary(message);
+		} else if (type === 'translate') {
+			reply.message.body = 'Not implemented yet';
+		} else if (type === 'detect') {
+			reply.message.body = await getLanguage(message);
 		} else {
-			reply.message.body = await getResponse(messages.at(-1).message.body);
+			reply.message.body = await getResponse(message);
 		}
 		messages = messages.concat(reply);
 	}
@@ -42,8 +64,7 @@ export const actions: Actions = {
 	sendMessage: async ({ request }) => {
 		const data = await request.formData();
 		const message = data.get('message');
-		const commands =
-			/^(\/say)|^(\/di)^(\/generate)|^(\/genera)^(\/complete)|^(\/completa)^(\/summarize)|^(\/resume)^(\/fix)|^(\/corrige)^(\/translate)|^(\/traduce)^(\/detect)|^(\/detecta)/;
+		const commands = /\/\w+/;
 
 		if (!message) {
 			return fail(400, {

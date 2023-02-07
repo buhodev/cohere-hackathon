@@ -88,12 +88,9 @@
 		let text = formData.get('message')?.toString();
 		let command = getCommand(text);
 
-		let commands =
-			/^(\/say)|^(\/di)^(\/generate)|^(\/genera)^(\/complete)|^(\/completa)^(\/summarize)|^(\/resume)^(\/fix)|^(\/corrige)^(\/translate)|^(\/traduce)^(\/detect)|^(\/detecta)/;
-
 		let newMessage = {
 			message: {
-				body: text?.replace(commands, ''),
+				body: text.replace(/\/\w+/, ''),
 				sentAt: new Date()
 			},
 			me: true,
