@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance, type SubmitFunction } from '$app/forms';
-	import themeStore, { setTheme } from '$lib/components/SvelteThemes/index';
+	import themeStore from '$lib/components/SvelteThemes/index';
+	import { toggleTheme } from '$lib/utils';
 	import { draw } from 'svelte/transition';
 	import { page } from '$app/stores';
 
@@ -11,14 +12,6 @@
 
 		if (theme) {
 			document.documentElement.setAttribute('data-theme', theme);
-		}
-	};
-
-	const toggleTheme = () => {
-		if ($themeStore.theme === 'light') {
-			setTheme('dark');
-		} else {
-			setTheme('light');
 		}
 	};
 

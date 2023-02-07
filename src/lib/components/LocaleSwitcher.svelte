@@ -1,31 +1,14 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { setLocale, locale } from '$i18n/i18n-svelte';
+	import { locale } from '$i18n/i18n-svelte';
 	import type { Locales } from '$i18n/i18n-types';
 	import { locales } from '$i18n/i18n-util';
-	import { loadLocaleAsync } from '$i18n/i18n-util.async';
-	import { replaceLocaleInUrl } from '$lib/utils';
+	import { replaceLocaleInUrl, switchLocale } from '$lib/utils';
 	import { LL } from '$i18n/i18n-svelte';
 
 	let value: Locales = $page.params.lang as Locales;
 
-	const switchLocale = async (newLocale: Locales, updateHistoryState = true) => {
-		if (!newLocale || $locale === newLocale) return;
-		// load new dictionary from server
-		await loadLocaleAsync(newLocale);
-		// select locale
-		setLocale(newLocale);
-		// update `lang` attribute
-		document.querySelector('html')?.setAttribute('lang', newLocale);
-		if (updateHistoryState) {
-			// update url to reflect locale changes
-			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale));
-		}
-		// run the `load` function again
-		invalidateAll();
-	};
 	// update locale when navigating via browser back/forward buttons
 	const handlePopStateEvent = async ({ state }: PopStateEvent) => switchLocale(state.locale, false);
 	// update locale when page store changes
@@ -58,7 +41,7 @@
 					class:text-white={l === $locale}
 					href={`${replaceLocaleInUrl($page.url, l)}`}
 				>
-					{$LL.LOCALES[l]()}
+					{$LL.SIDEBAR.LOCALES[l]()}
 				</a>
 			</li>
 		{/each}
@@ -66,7 +49,7 @@
 </noscript>
 
 <div class="language-toggle w-24">
-	<label class="sr-only" for="change-language">{$LL.LOCALES.description}</label>
+	<label class="sr-only" for="change-language">{$LL.SIDEBAR.LOCALES.DESCRIPTION()}</label>
 	<select
 		bind:value
 		on:change={() => switchLocale(value)}
@@ -75,7 +58,7 @@
 		class="block w-full rounded-lg border-transparent bg-neutral-50 py-1 px-2 text-sm text-neutral-900 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400 dark:focus:ring-indigo-500"
 	>
 		{#each locales as l}
-			<option selected={l === $locale} value={l}>{$LL.LOCALES[l]()}</option>
+			<option selected={l === $locale} value={l}>{$LL.SIDEBAR.LOCALES[l]()}</option>
 		{/each}
 	</select>
 </div>
