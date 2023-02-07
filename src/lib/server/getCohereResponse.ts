@@ -122,3 +122,21 @@ export async function getGeneration(message: string) {
 
 	return output.body.generations[0].text;
 }
+
+export async function getTranslation(message: string) {
+	cohere.init(PRIVATE_COHERE_API_KEY);
+	const prompt = `Translate the following text: "${message}"`;
+
+	const output = await cohere.generate({
+		prompt,
+		model: 'command-xlarge-20221108',
+		max_tokens: 100,
+		temperature: 0.2,
+		k: 0,
+		p: 0.75,
+		frequency_penalty: 0,
+		return_likelihoods: 'NONE'
+	});
+
+	return output.body.generations[0].text;
+}

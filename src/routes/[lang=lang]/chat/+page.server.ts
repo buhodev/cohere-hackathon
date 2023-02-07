@@ -6,7 +6,8 @@ import {
 	getGeneration,
 	getLanguage,
 	getResponse,
-	getSummary
+	getSummary,
+	getTranslation
 } from '$lib/server/getCohereResponse';
 import { getCommand } from '$lib/utils';
 
@@ -48,7 +49,7 @@ export const load = (async ({ url }) => {
 		} else if (type === 'summarize') {
 			reply.message.body = await getSummary(message);
 		} else if (type === 'translate') {
-			reply.message.body = 'Not implemented yet';
+			reply.message.body = await getTranslation(message);
 		} else if (type === 'detect') {
 			reply.message.body = await getLanguage(message);
 		} else {
