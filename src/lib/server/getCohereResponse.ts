@@ -1,7 +1,7 @@
 import cohere from 'cohere-ai';
 import { PRIVATE_COHERE_API_KEY } from '$env/static/private';
 
-export default async function getCohereResponse(message: string) {
+export async function getResponse(message: string) {
 	cohere.init(PRIVATE_COHERE_API_KEY);
 
 	const output = await cohere.generate({
