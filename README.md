@@ -9,15 +9,15 @@
 [![Eslint badge](https://img.shields.io/badge/Eslint-8.28.0-blue)](https://eslint.org/)
 [![Prettier badge](https://img.shields.io/badge/Prettier-2.8.0-pink)](https://prettier.io/)
 [![Vite badge](https://img.shields.io/badge/Vite-4.0.0-blue)](https://vitejs.dev/)
-[![Vercel badge](https://vercelbadge.vercel.app/api/buhodev/cohere-hackathon)](https://magic-pen.vercel.app/)
+[![Vercel badge](https://vercelbadge.vercel.app/api/buhodev/cohere-hackathon)](https://magic-tools.vercel.app/)
 
 </div>
 
-# Magic Pen
+# Magic Tools
 
-Magic Pen is a chat application & playground powered by AI. It is [my submission](https://.vercel.app/) for the [Co:here Hackathon](https://hacktoberfest-2022.vercel.app) hosted by [Midudev](https://twitch.tv/midudev).
+Magic Tools is a chat application & playground powered by AI. It is [my submission](https://cohere-hackathon.vercel.app/) for the Co:here Hackathon hosted by [Midudev](https://twitch.tv/midudev).
 
-![Screenshot of the magic pen app](/static/magica-screenshot.png)
+![Screenshot of the magic tools app](/static/magic-tools-screenshot.png)
 
 ## 🦾 Technologies
 
@@ -28,7 +28,6 @@ Magic Pen is a chat application & playground powered by AI. It is [my submission
 - [Vitest](https://vitest.dev/)
 - [Playwright](https://playwright.dev/)
 - [Co:here](https://cohere.ai/)
-- [HuggingFace](https://huggingface.co/)
 - [RapidAPI](https://rapidapi.com/)
 - [Vercel](https://vercel.com/)
 
@@ -68,7 +67,7 @@ _📢 If you're using [Visual Studio Code](https://code.visualstudio.com/), inst
 
 Contributions, issues and feature requests are welcome!
 <br />
-Feel free to check the [issues page](https://github.com/buhodev/magicpen/issues).
+Feel free to check the [issues page](https://github.com/buhodev/cohere-hackathon/issues).
 
 ## ✨ Credits
 
@@ -76,6 +75,7 @@ Feel free to check the [issues page](https://github.com/buhodev/magicpen/issues)
 - [https://twitter.com/buildsghost/status/1587519227207950336](https://twitter.com/buildsghost/status/1587519227207950336)
 - [https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/](https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/)
 - [https://medium.com/weekly-webtips/js-implementing-auto-complete-f4c5a5d5c009](https://medium.com/weekly-webtips/js-implementing-auto-complete-f4c5a5d5c009)
+- [https://codingpotions.com/input-autocompletado-javascript](https://codingpotions.com/input-autocompletado-javascript)
 
 ## License
 
