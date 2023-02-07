@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { format } from 'date-fns';
+	import Audio from './Audio.svelte';
 
 	export let message: { body: string; sentAt: Date };
 	export let sentByCurrentUser = false;
@@ -16,7 +17,7 @@
     data-position={groupPosition}
     {id}
     class="
-        group max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-prose w-fit min-w-min px-3 py-1 rounded-2xl antialiased select-text message
+        group max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-prose w-fit min-w-min px-3 py-1 rounded-2xl antialiased select-text message relative
         data-[me=true]:bg-indigo-500 data-[me=true]:text-white data-[me=true]:ml-auto
         data-[me=false]:bg-gray-100 data-[me=false]:border data-[me=false]:mr-auto dark:data-[me=false]:bg-gray-800 dark:data-[me=false]:border-gray-700
         data-[me=true]:data-[position=top]:rounded-br
@@ -30,10 +31,13 @@
     "
 >
     <p>{message.body}</p>
+    {#if !sentByCurrentUser}
+        <Audio message={message.body} />
+    {/if}
     <time
         datetime={message.sentAt.toISOString()}
         class="
-        hidden group-focus:block text-xs text-right first-letter:capitalize
+        hidden mt-1 group-focus:block text-xs text-right first-letter:capitalize
         group-data-[me=true]:text-indigo-100
         group-data-[me=false]:text-slate-600 dark:group-data-[me=false]:text-slate-300
         "
