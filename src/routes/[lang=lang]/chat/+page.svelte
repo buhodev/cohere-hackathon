@@ -2,7 +2,7 @@
 	import type { ActionData, PageData } from './$types';
 	import { enhance, type SubmitFunction } from '$app/forms';
 	import { beforeUpdate, afterUpdate, onMount } from 'svelte';
-	import { getMessagePosition } from '$lib/utils';
+	import { getCommand, getMessagePosition } from '$lib/utils';
 	import Message from '$lib/components/Message.svelte';
 	import PaperAirplaneIcon from '$lib/icons/24/solid/paper-airplane.svg?component';
 	import LoadingMessage from '$lib/components/LoadingMessage.svelte';
@@ -86,14 +86,19 @@
 
 	const submitMessage: SubmitFunction = ({ form, data: formData }) => {
 		let text = formData.get('message')?.toString();
+		let command = getCommand(text);
+
+		let commands =
+			/^(\/say)|^(\/di)^(\/generate)|^(\/genera)^(\/complete)|^(\/completa)^(\/summarize)|^(\/resume)^(\/fix)|^(\/corrige)^(\/translate)|^(\/traduce)^(\/detect)|^(\/detecta)/;
 
 		let newMessage = {
 			message: {
-				body: text,
+				body: text?.replace(commands, ''),
 				sentAt: new Date()
 			},
 			me: true,
-			id: crypto.randomUUID()
+			id: crypto.randomUUID(),
+			type: command
 		};
 		data.messages.push(newMessage);
 		data = data;
@@ -137,10 +142,11 @@
 		class="flex w-full overflow-auto"
 	>
 		<div class="mx-auto flex w-full max-w-4xl flex-col space-y-1 px-4 sm:px-6 md:px-8">
-			{#each data.messages as { message, me, id }, index}
+			{#each data.messages as { message, me, id, type }, index}
 				<Message
 					{message}
 					{id}
+					{type}
 					groupPosition={getMessagePosition(data.messages, index)}
 					sentByCurrentUser={me}
 				/>
@@ -192,6 +198,7 @@
 				bind:this={input}
 				autocomplete="off"
 				autofocus
+				required
 				type="text"
 				name="message"
 				id="message"

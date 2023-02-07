@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { format } from 'date-fns';
-	import Audio from './Audio.svelte';
+	import Audio from '$lib/components/Audio.svelte';
 
 	export let message: { body: string; sentAt: Date };
 	export let sentByCurrentUser = false;
 	export let groupPosition: 'top' | 'middle' | 'bottom' | undefined = undefined;
 	export let id: string = '';
+	export let type = '';
 
 	let exactTime = format(message.sentAt, 'p');
 </script>
@@ -30,6 +31,9 @@
         data-[me=true]:focus-visible:ring-indigo-300 dark:data-[me=true]:focus-visible:ring-white/70
     "
 >
+    {#if sentByCurrentUser && type !== 'none' && type !== undefined}
+        <span class="absolute text-xs bg-indigo-100 dark:bg-indigo-200 border border-indigo-300 -top-2 left-0 pt-0.5 rounded px-1 leading-none text-indigo-600">{type}</span>
+    {/if}
     <p>{message.body}</p>
     {#if !sentByCurrentUser}
         <Audio message={message.body} />
